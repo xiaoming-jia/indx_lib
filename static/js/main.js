@@ -22,90 +22,20 @@ function showPage(page, event) {
     // 更新标题
     const titles = {
         'dashboard': '管理驾驶舱',
-        'system': '指标体系',
         'center': '指标中心',
         'market': '指标市场',
         'bloodline': '指标血缘',
         'alert': '智能预警',
-        'agent': '智能应用'
+        'agent': '智能助手'
     };
     document.getElementById('page-title').textContent = titles[page];
 
     // 加载数据
     currentPage = page;
-    if (page === 'system') loadSystemData();
-    else if (page === 'center') loadCenterData();
+    if (page === 'center') loadCenterData();
     else if (page === 'market') loadMarketData();
     else if (page === 'bloodline') loadBloodline('all');
     else if (page === 'alert') loadAlertData();
-}
-
-// 加载指标体系数据
-function loadSystemData() {
-    // 加载北极星指标
-    fetch('/api/north_star')
-        .then(res => res.json())
-        .then(data => {
-            const grid = document.getElementById('north-star-grid');
-            grid.innerHTML = data.map(metric => `
-                <div class="north-star-card" style="cursor: pointer;" onclick="showMetricDetail('${metric.id}')">
-                    <div class="north-star-name">${metric.name}</div>
-                    <div class="north-star-value">${metric.value}${metric.unit}</div>
-                    <div class="north-star-trend ${metric.trend >= 0 ? 'up' : 'down'}">
-                        <i class="fas fa-arrow-${metric.trend >= 0 ? 'up' : 'down'}"></i>
-                        ${Math.abs(metric.trend)}%
-                    </div>
-                    <div style="margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.8);">
-                        <i class="fas fa-chart-line"></i> 点击查看趋势
-                    </div>
-                </div>
-            `).join('');
-        });
-
-    // 加载指标树
-    fetch('/api/metric_tree')
-        .then(res => res.json())
-        .then(data => {
-            const tree = document.getElementById('metric-tree');
-            tree.innerHTML = data.children.map(node => renderTreeNode(node)).join('');
-        });
-}
-
-// 渲染树节点
-function renderTreeNode(node) {
-    const hasChildren = node.children && node.children.length > 0;
-    if (hasChildren) {
-        return `
-            <li class="tree-node">
-                <div class="tree-node-header" onclick="toggleTreeNode(this)">
-                    <i class="fas fa-chevron-right"></i>
-                    <span class="tree-node-name">${node.name}</span>
-                </div>
-                <ul class="tree-children">
-                    ${node.children.map(child => renderTreeNode(child)).join('')}
-                </ul>
-            </li>
-        `;
-    } else {
-        return `
-            <li class="tree-child-item" onclick="showMetricDetail('${node.id}')">
-                <span class="tree-child-name">${node.name}</span>
-                <span class="tree-child-value">${node.value}${node.unit || '%'}</span>
-                ${node.trend !== undefined ? `
-                    <span class="tree-child-trend ${node.trend >= 0 ? 'up' : 'down'}">
-                        <i class="fas fa-arrow-${node.trend >= 0 ? 'up' : 'down'}"></i>
-                        ${Math.abs(node.trend)}%
-                    </span>
-                ` : ''}
-            </li>
-        `;
-    }
-}
-
-// 切换树节点展开/收起
-function toggleTreeNode(el) {
-    el.classList.toggle('expanded');
-    el.nextElementSibling.classList.toggle('expanded');
 }
 
 // 显示指标详情
@@ -127,176 +57,368 @@ function showMetricDetail(metricId) {
                                    qualityData.status === 'warning' ? '警告' : '异常';
                 
                 qualityHtml = `
-                    <div class="detail-section">
-                        <h4 class="detail-section-title">
-                            <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
-                            数据质量
-                        </h4>
-                        <div class="quality-overview">
-                            <div class="quality-score-container">
-                                <div class="quality-score-circle ${statusClass}">
-                                    <span class="quality-score-value">${qualityData.quality_score}</span>
-                                    <span class="quality-score-label">分</span>
-                                </div>
-                                <span class="quality-status-tag ${statusClass}">${statusText}</span>
+                    <div class="quality-overview">
+                        <div class="quality-score-container">
+                            <div class="quality-score-circle ${statusClass}">
+                                <span class="quality-score-value">${qualityData.quality_score}</span>
+                                <span class="quality-score-label">分</span>
                             </div>
-                            <div class="quality-metrics-grid">
-                                <div class="quality-metric-item">
-                                    <div class="quality-metric-label">完整性</div>
-                                    <div class="quality-metric-bar">
-                                        <div class="quality-metric-fill" style="width: ${qualityData.completeness}%"></div>
-                                    </div>
-                                    <div class="quality-metric-value">${qualityData.completeness}%</div>
+                            <span class="quality-status-tag ${statusClass}">${statusText}</span>
+                        </div>
+                        <div class="quality-metrics-grid">
+                            <div class="quality-metric-item">
+                                <div class="quality-metric-label">完整性</div>
+                                <div class="quality-metric-bar">
+                                    <div class="quality-metric-fill" style="width: ${qualityData.completeness}%"></div>
                                 </div>
-                                <div class="quality-metric-item">
-                                    <div class="quality-metric-label">一致性</div>
-                                    <div class="quality-metric-bar">
-                                        <div class="quality-metric-fill" style="width: ${qualityData.consistency}%"></div>
-                                    </div>
-                                    <div class="quality-metric-value">${qualityData.consistency}%</div>
-                                </div>
-                                <div class="quality-metric-item">
-                                    <div class="quality-metric-label">及时性</div>
-                                    <div class="quality-metric-bar">
-                                        <div class="quality-metric-fill" style="width: ${qualityData.timeliness}%"></div>
-                                    </div>
-                                    <div class="quality-metric-value">${qualityData.timeliness}%</div>
-                                </div>
-                                <div class="quality-metric-item">
-                                    <div class="quality-metric-label">准确性</div>
-                                    <div class="quality-metric-bar">
-                                        <div class="quality-metric-fill" style="width: ${qualityData.accuracy}%"></div>
-                                    </div>
-                                    <div class="quality-metric-value">${qualityData.accuracy}%</div>
-                                </div>
+                                <div class="quality-metric-value">${qualityData.completeness}%</div>
                             </div>
-                            <div class="quality-info">
-                                <span>检查类型: ${qualityData.check_type}</span>
-                                <span>异常数量: ${qualityData.anomaly_count}个</span>
+                            <div class="quality-metric-item">
+                                <div class="quality-metric-label">一致性</div>
+                                <div class="quality-metric-bar">
+                                    <div class="quality-metric-fill" style="width: ${qualityData.consistency}%"></div>
+                                </div>
+                                <div class="quality-metric-value">${qualityData.consistency}%</div>
                             </div>
+                            <div class="quality-metric-item">
+                                <div class="quality-metric-label">及时性</div>
+                                <div class="quality-metric-bar">
+                                    <div class="quality-metric-fill" style="width: ${qualityData.timeliness}%"></div>
+                                </div>
+                                <div class="quality-metric-value">${qualityData.timeliness}%</div>
+                            </div>
+                            <div class="quality-metric-item">
+                                <div class="quality-metric-label">准确性</div>
+                                <div class="quality-metric-bar">
+                                    <div class="quality-metric-fill" style="width: ${qualityData.accuracy}%"></div>
+                                </div>
+                                <div class="quality-metric-value">${qualityData.accuracy}%</div>
+                            </div>
+                        </div>
+                        <div class="quality-info">
+                            <span>检查类型: ${qualityData.check_type}</span>
+                            <span>异常数量: ${qualityData.anomaly_count}个</span>
+                        </div>
+                        <div style="margin-top: 12px; text-align: right;">
+                            <button class="btn btn-primary btn-sm" onclick="showQualityDetail('${qualityData.id}', '${metricId}')">
+                                <i class="fas fa-search-plus"></i> 查看质量检查详情
+                            </button>
                         </div>
                     </div>
                 `;
             }
 
+            // 构建业务属性内容
+            // 处理血缘数据：上游（数据源）和下游（依赖指标）
+            const bloodlineUpstream = (Array.isArray(data.bloodline_upstream) ? data.bloodline_upstream : (data.bloodline ? [data.bloodline] : []));
+            const bloodlineDownstream = Array.isArray(data.bloodline_downstream) ? data.bloodline_downstream : [];
+            const businessHtml = `
+                <div class="detail-info-grid">
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标维度</div>
+                        <div class="detail-info-value">${data.dimension || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">业务口径</div>
+                        <div class="detail-info-value">${data.business_caliber || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">归属部门</div>
+                        <div class="detail-info-value">${data.department || '-'}</div>
+                    </div>
+                </div>
+            `;
+
+            // 构建技术属性内容
+            // 处理血缘数据：上游（数据源）和下游（依赖指标）
+            const bloodlineUpstreamHtml = bloodlineUpstream.length > 0 ? `
+                <ul class="detail-bloodline-list">
+                    ${bloodlineUpstream.map(item => `
+                        <li class="detail-bloodline-item" style="cursor: pointer;" onclick="showDataPreview('${item}', '表')" title="点击查看数据">
+                            <i class="fas fa-arrow-up" style="color: #4a90d9; margin-right: 4px;"></i>
+                            <span style="text-decoration: underline; text-decoration-style: dotted;">${item}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            ` : '<span style="color: #8898aa;">-</span>';
+
+            const bloodlineDownstreamHtml = bloodlineDownstream.length > 0 ? `
+                <ul class="detail-bloodline-list">
+                    ${bloodlineDownstream.map(item => `
+                        <li class="detail-bloodline-item" style="cursor: pointer;" onclick="showDataPreview('${item}', '表')" title="点击查看数据">
+                            <i class="fas fa-arrow-down" style="color: #f59e0b; margin-right: 4px;"></i>
+                            <span style="text-decoration: underline; text-decoration-style: dotted;">${item}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            ` : '<span style="color: #8898aa;">-</span>';
+
+            const technicalHtml = `
+                <div class="detail-info-grid">
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标更新时间</div>
+                        <div class="detail-info-value">${data.update_time || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">下次预计更新时间</div>
+                        <div class="detail-info-value">${data.next_update_time || '-'}</div>
+                    </div>
+                    <div class="detail-info-item" style="grid-column: 1 / -1;">
+                        <div class="detail-info-label">指标血缘-上游（数据源）</div>
+                        <div class="detail-info-value">${bloodlineUpstreamHtml}</div>
+                    </div>
+                    <div class="detail-info-item" style="grid-column: 1 / -1;">
+                        <div class="detail-info-label">指标血缘-下游（依赖指标）</div>
+                        <div class="detail-info-value">${bloodlineDownstreamHtml}</div>
+                    </div>
+                </div>
+            `;
+
+            // 构建管理属性内容
+            const managementHtml = `
+                <div class="detail-info-grid">
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标ID</div>
+                        <div class="detail-info-value">${data.id}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标名称</div>
+                        <div class="detail-info-value">${data.name}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标别名</div>
+                        <div class="detail-info-value">${data.alias || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标类型</div>
+                        <div class="detail-info-value">${data.type}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">指标分类</div>
+                        <div class="detail-info-value">${data.category || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">状态</div>
+                        <div class="detail-info-value"><span class="status-badge ${getStatusClass(data.status)}">${data.status}</span></div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">负责人</div>
+                        <div class="detail-info-value">${data.owner}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">统计周期</div>
+                        <div class="detail-info-value">${data.cycle}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">计量单位</div>
+                        <div class="detail-info-value">${data.measure || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">单位</div>
+                        <div class="detail-info-value">${data.unit || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">币种</div>
+                        <div class="detail-info-value">${data.currency || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">来源</div>
+                        <div class="detail-info-value">${data.source || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">加工方式</div>
+                        <div class="detail-info-value">${data.processing || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">父指标</div>
+                        <div class="detail-info-value">${data.parent || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">制定依据</div>
+                        <div class="detail-info-value">${data.basis || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">统计规则</div>
+                        <div class="detail-info-value">${data.stat_rule || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">资产编号</div>
+                        <div class="detail-info-value">${data.asset_no || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">登记人员</div>
+                        <div class="detail-info-value">${data.registrant || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">登记方式</div>
+                        <div class="detail-info-value">${data.regist_method || '-'}</div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="detail-info-label">登记时间</div>
+                        <div class="detail-info-value">${data.regist_time || '-'}</div>
+                    </div>
+                </div>
+            `;
+
+            // 构建维度信息内容
+            const dimensionHtml = `
+                <div class="detail-info-grid">
+                    <div class="detail-info-item" style="grid-column: 1 / -1;">
+                        <div class="detail-info-label">维度列表</div>
+                        <div class="detail-info-value">${data.dimensions || data.dimension || '-'}</div>
+                    </div>
+                </div>
+            `;
+
+            // 构建变更历史内容
+            const historyHtml = `
+                <pre style="color: #5a6c7d; line-height: 1.6; white-space: pre-wrap; font-family: inherit; margin: 0;">${data.history || '-'}</pre>
+            `;
+
+            // 构建数据血缘内容
             document.getElementById('detail-content').innerHTML = `
-                <div class="detail-section">
-                    <h4 class="detail-section-title">基本信息</h4>
-                    <div class="detail-info-grid">
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">指标ID</div>
-                            <div class="detail-info-value">${data.id}</div>
+                <!-- 指标信息 -->
+                <div class="detail-section detail-section-collapsible" data-section="info">
+                    <div class="detail-section-header" onclick="toggleDetailSection('info')">
+                        <h4 class="detail-section-title">
+                            <i class="fas fa-info-circle"></i> 指标信息
+                            <span class="detail-section-subtitle">(${getInfoItemCount(data)}个字段)</span>
+                        </h4>
+                        <i class="fas fa-chevron-down detail-section-toggle"></i>
+                    </div>
+                    <div class="detail-section-body">
+                        <!-- 业务属性 -->
+                        <div class="detail-subsection">
+                            <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                                <i class="fas fa-briefcase"></i> 业务属性
+                                <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                            </h5>
+                            <div class="detail-subsection-body">${businessHtml}</div>
                         </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">指标类型</div>
-                            <div class="detail-info-value">${data.type}</div>
+                        <!-- 管理属性 -->
+                        <div class="detail-subsection">
+                            <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                                <i class="fas fa-cog"></i> 管理属性
+                                <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                            </h5>
+                            <div class="detail-subsection-body">${managementHtml}</div>
                         </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">状态</div>
-                            <div class="detail-info-value"><span class="status-badge ${getStatusClass(data.status)}">${data.status}</span></div>
+                        <!-- 维度信息 -->
+                        <div class="detail-subsection">
+                            <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                                <i class="fas fa-layer-group"></i> 维度信息
+                                <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                            </h5>
+                            <div class="detail-subsection-body">${dimensionHtml}</div>
                         </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">负责人</div>
-                            <div class="detail-info-value">${data.owner}</div>
+                        <!-- 技术属性 -->
+                        <div class="detail-subsection">
+                            <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                                <i class="fas fa-code"></i> 技术属性
+                                <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                            </h5>
+                            <div class="detail-subsection-body">${technicalHtml}</div>
                         </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">所属部门</div>
-                            <div class="detail-info-value">${data.department}</div>
-                        </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">统计周期</div>
-                            <div class="detail-info-value">${data.cycle}</div>
-                        </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">计量单位</div>
-                            <div class="detail-info-value">${data.unit || '-'}</div>
-                        </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">数据源</div>
-                            <div class="detail-info-value">${data.data_source || '-'}</div>
-                        </div>
-                        <div class="detail-info-item">
-                            <div class="detail-info-label">更新时间</div>
-                            <div class="detail-info-value">${data.update_time || '-'}</div>
+                        <!-- 变更历史 -->
+                        <div class="detail-subsection">
+                            <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                                <i class="fas fa-history"></i> 变更历史
+                                <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                            </h5>
+                            <div class="detail-subsection-body">${historyHtml}</div>
                         </div>
                     </div>
                 </div>
 
-                ${qualityHtml}
-
-                <div class="detail-section">
-                    <h4 class="detail-section-title">指标定义</h4>
-                    <p style="color: #5a6c7d; line-height: 1.6;">${data.definition || '-'}</p>
+                <!-- 数据质量 -->
+                <div class="detail-section detail-section-collapsible" data-section="quality">
+                    <div class="detail-section-header" onclick="toggleDetailSection('quality')">
+                        <h4 class="detail-section-title">
+                            <i class="fas fa-check-circle"></i> 数据质量
+                        </h4>
+                        <i class="fas fa-chevron-down detail-section-toggle"></i>
+                    </div>
+                    <div class="detail-section-body">${qualityHtml || '<p style="color: #5a6c7d;">暂无质量数据</p>'}</div>
                 </div>
 
-                <div class="detail-section">
-                    <h4 class="detail-section-title">业务口径</h4>
-                    <p style="color: #5a6c7d; line-height: 1.6;">${data.business_caliber}</p>
-                </div>
-
-                <div class="detail-section">
-                    <h4 class="detail-section-title">技术字段</h4>
-                    <code style="color: #6c757d; background: #f8f9fa; padding: 10px; border-radius: 6px; display: block; word-break: break-all;">${data.technical_field}</code>
-                </div>
-
-                <div class="detail-section">
-                    <h4 class="detail-section-title">趋势数据</h4>
-                    <div style="height: 280px; margin-top: 15px;">
-                        <canvas id="metric-detail-chart"></canvas>
+                <!-- 趋势数据 -->
+                <div class="detail-section detail-section-collapsible" data-section="trend">
+                    <div class="detail-section-header" onclick="toggleDetailSection('trend')">
+                        <h4 class="detail-section-title">
+                            <i class="fas fa-chart-line"></i> 趋势数据
+                        </h4>
+                        <i class="fas fa-chevron-down detail-section-toggle"></i>
+                    </div>
+                    <div class="detail-section-body">
+                        <div class="trend-toolbar">
+                            <div class="trend-view-switch">
+                                <button class="trend-view-btn active" data-view="chart" onclick="switchTrendView('chart', '${metricId}')">
+                                    <i class="fas fa-chart-line"></i> 图表
+                                </button>
+                                <button class="trend-view-btn" data-view="table" onclick="switchTrendView('table', '${metricId}')">
+                                    <i class="fas fa-table"></i> 二维表
+                                </button>
+                            </div>
+                            <div class="trend-date-range">
+                                <label>日期范围：</label>
+                                <input type="date" id="trend-start-date" class="trend-date-input" onchange="updateTrendDateRange('${metricId}')">
+                                <span>至</span>
+                                <input type="date" id="trend-end-date" class="trend-date-input" onchange="updateTrendDateRange('${metricId}')">
+                            </div>
+                        </div>
+                        <div id="trend-chart-container" style="height: 280px; margin-top: 15px;">
+                            <canvas id="metric-detail-chart"></canvas>
+                        </div>
+                        <div id="trend-table-container" style="display: none; margin-top: 15px;">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>日期</th>
+                                            <th>指标值</th>
+                                            <th>单位</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="trend-table-body"></tbody>
+                                </table>
+                            </div>
+                            <div class="table-pagination">
+                                <button class="btn btn-sm btn-secondary" onclick="changeTrendPage(-1)">
+                                    <i class="fas fa-chevron-left"></i> 上一页
+                                </button>
+                                <span class="pagination-info" id="trend-pagination-info">第 1 页，共 1 页</span>
+                                <button class="btn btn-sm btn-secondary" onclick="changeTrendPage(1)">
+                                    下一页 <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="detail-section">
-                    <h4 class="detail-section-title">数据血缘</h4>
-                    <ul class="detail-bloodline-list">
-                        ${(data.bloodline || []).map(item => `
-                            <li class="detail-bloodline-item" style="cursor: pointer;" onclick="showDataPreview('${item}', '表')" title="点击查看数据">
-                                <i class="fas fa-link"></i>
-                                <span style="text-decoration: underline; text-decoration-style: dotted;">${item}</span>
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
             `;
 
             document.getElementById('detail-modal').classList.add('show');
 
             // 渲染趋势图表
+            trendState.metricId = metricId;
+            trendState.unit = (data.measure || '') + (data.unit || '');
+            trendState.currentPage = 1;
+            
             fetch('/api/metric/trend/' + metricId)
                 .then(res => res.json())
                 .catch(() => {
                     return generateMockTrendData(metricId);
                 })
                 .then(trendData => {
-                    const ctx = document.getElementById('metric-detail-chart').getContext('2d');
-                    new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: trendData.data.map(d => d.date.slice(5)),
-                            datasets: [{
-                                label: data.name,
-                                data: trendData.data.map(d => d.value),
-                                borderColor: '#667eea',
-                                backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                                fill: true,
-                                tension: 0.4,
-                                pointRadius: 5,
-                                pointHoverRadius: 7,
-                                pointBackgroundColor: '#667eea'
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: { display: false }
-                            },
-                            scales: {
-                                x: { grid: { display: false } },
-                                y: { grid: { color: '#edf2f7' } }
-                            }
-                        }
-                    });
+                    trendState.data = trendData.data || [];
+                    // 设置日期范围默认值
+                    if (trendState.data.length > 0) {
+                        document.getElementById('trend-start-date').value = trendState.data[0].date;
+                        document.getElementById('trend-end-date').value = trendState.data[trendState.data.length - 1].date;
+                        trendState.startDate = trendState.data[0].date;
+                        trendState.endDate = trendState.data[trendState.data.length - 1].date;
+                    }
+                    renderTrendChart(trendState.data);
                 });
             }
         });
@@ -310,6 +432,153 @@ function getStatusClass(status) {
         case '已下线': return 'status-offline';
         case '已授权': return 'status-authorized';
         default: return '';
+    }
+}
+
+// 切换详情区域展开/收起
+function toggleDetailSection(sectionName) {
+    const section = document.querySelector(`[data-section="${sectionName}"]`);
+    if (section) {
+        section.classList.toggle('collapsed');
+    }
+}
+
+// 切换子区域展开/收起
+function toggleSubSection(el) {
+    const subsection = el.parentElement;
+    subsection.classList.toggle('collapsed');
+}
+
+// 计算指标信息的字段数量
+function getInfoItemCount(data) {
+    let count = 0;
+    if (data.dimension) count++;
+    if (data.business_caliber) count++;
+    if (data.department) count++;
+    if (data.bloodline) count++;
+    count += 20; // 管理属性的字段数
+    if (data.dimensions || data.dimension) count++;
+    if (data.history) count++;
+    return count;
+}
+
+// 趋势数据状态
+let trendState = {
+    metricId: null,
+    data: [],
+    currentPage: 1,
+    pageSize: 10,
+    unit: '',
+    startDate: null,
+    endDate: null,
+    currentView: 'chart',
+    chartInstance: null
+};
+
+// 切换趋势视图
+function switchTrendView(view, metricId) {
+    trendState.currentView = view;
+    document.querySelectorAll('.trend-view-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    document.getElementById('trend-chart-container').style.display = view === 'chart' ? 'block' : 'none';
+    document.getElementById('trend-table-container').style.display = view === 'table' ? 'block' : 'none';
+    if (view === 'table') {
+        renderTrendTable();
+    } else {
+        // 重新渲染图表
+        if (trendState.data.length > 0) {
+            renderTrendChart(trendState.data);
+        }
+    }
+}
+
+// 渲染趋势图表
+function renderTrendChart(data) {
+    if (trendState.chartInstance) {
+        trendState.chartInstance.destroy();
+    }
+    const ctx = document.getElementById('metric-detail-chart').getContext('2d');
+    trendState.chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.map(d => d.date.slice(5)),
+            datasets: [{
+                label: '指标值',
+                data: data.map(d => d.value),
+                borderColor: '#667eea',
+                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointBackgroundColor: '#667eea'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: '#edf2f7' } }
+            }
+        }
+    });
+}
+
+// 渲染趋势表格
+function renderTrendTable() {
+    const filtered = getFilteredTrendData();
+    const start = (trendState.currentPage - 1) * trendState.pageSize;
+    const end = start + trendState.pageSize;
+    const pageData = filtered.slice(start, end);
+    const totalPages = Math.ceil(filtered.length / trendState.pageSize) || 1;
+
+    const tbody = document.getElementById('trend-table-body');
+    tbody.innerHTML = pageData.map(d => `
+        <tr>
+            <td>${d.date}</td>
+            <td>${d.value}</td>
+            <td>${trendState.unit}</td>
+        </tr>
+    `).join('');
+
+    document.getElementById('trend-pagination-info').textContent = `第 ${trendState.currentPage} 页，共 ${totalPages} 页`;
+}
+
+// 获取过滤后的趋势数据
+function getFilteredTrendData() {
+    let data = trendState.data;
+    if (trendState.startDate) {
+        data = data.filter(d => d.date >= trendState.startDate);
+    }
+    if (trendState.endDate) {
+        data = data.filter(d => d.date <= trendState.endDate);
+    }
+    return data;
+}
+
+// 切换翻页
+function changeTrendPage(delta) {
+    const filtered = getFilteredTrendData();
+    const totalPages = Math.ceil(filtered.length / trendState.pageSize) || 1;
+    const newPage = trendState.currentPage + delta;
+    if (newPage < 1 || newPage > totalPages) return;
+    trendState.currentPage = newPage;
+    renderTrendTable();
+}
+
+// 更新日期范围
+function updateTrendDateRange(metricId) {
+    trendState.startDate = document.getElementById('trend-start-date').value || null;
+    trendState.endDate = document.getElementById('trend-end-date').value || null;
+    trendState.currentPage = 1;
+    if (trendState.currentView === 'table') {
+        renderTrendTable();
+    } else {
+        const filtered = getFilteredTrendData();
+        renderTrendChart(filtered);
     }
 }
 
@@ -485,11 +754,38 @@ function showAddMetricModal() {
 // 保存指标
 function saveMetric() {
     const data = {
-        name: document.getElementById('add-name').value,
-        type: document.getElementById('add-type').value,
-        unit: document.getElementById('add-unit').value,
+        // 业务属性
+        dimension: document.getElementById('add-dimension').value,
+        department: document.getElementById('add-department').value,
         business_caliber: document.getElementById('add-caliber').value,
-        owner: document.getElementById('add-owner').value
+        
+        // 技术属性
+        bloodline: document.getElementById('add-bloodline').value,
+        
+        // 管理属性
+        name: document.getElementById('add-name').value,
+        alias: document.getElementById('add-alias').value,
+        type: document.getElementById('add-type').value,
+        measure: document.getElementById('add-measure').value,
+        unit: document.getElementById('add-unit').value,
+        currency: document.getElementById('add-currency').value,
+        source: document.getElementById('add-source').value,
+        processing: document.getElementById('add-processing').value,
+        parent: document.getElementById('add-parent').value,
+        category: document.getElementById('add-category').value,
+        basis: document.getElementById('add-basis').value,
+        asset_no: document.getElementById('add-asset-no').value,
+        stat_rule: document.getElementById('add-stat-rule').value,
+        registrant: document.getElementById('add-registrant').value,
+        regist_method: document.getElementById('add-regist-method').value,
+        regist_time: document.getElementById('add-regist-time').value,
+        owner: document.getElementById('add-owner').value,
+        
+        // 维度信息
+        dimensions: document.getElementById('add-dimensions').value,
+        
+        // 变更历史
+        history: document.getElementById('add-history').value
     };
 
     fetch('/api/add_metric', {
@@ -680,7 +976,7 @@ function showMarketMetricDetail(metricId) {
         });
 }
 
-// 显示市场指标简化版详情
+// 显示市场指标简化版详情（未授权/审批中）
 function showMarketMetricDetailSimple(metric) {
     const modalContent = document.getElementById('detail-content');
     const modalTitle = document.getElementById('detail-title');
@@ -688,40 +984,215 @@ function showMarketMetricDetailSimple(metric) {
 
     modalTitle.textContent = metric.name;
 
-    let htmlContent = `
-        <div class="detail-section">
-            <h4 class="detail-section-title">基本信息</h4>
-            <div class="detail-info-grid">
-                <div class="detail-info-item">
-                    <div class="detail-info-label">指标分类</div>
-                    <div class="detail-info-value">${metric.category}</div>
-                </div>
-                <div class="detail-info-item">
-                    <div class="detail-info-label">热度</div>
-                    <div class="detail-info-value"><i class="fas fa-fire" style="color: #ff6b35;"></i> ${metric.popularity}</div>
-                </div>
-                <div class="detail-info-item">
-                    <div class="detail-info-label">权限状态</div>
-                    <div class="detail-info-value"><span class="status-badge ${isAuthorized ? 'status-authorized' : 'status-pending'}">${metric.permission}</span></div>
-                </div>
-                <div class="detail-info-item">
-                    <div class="detail-info-label">计量单位</div>
-                    <div class="detail-info-value">${metric.unit || '-'}</div>
-                </div>
-                <div class="detail-info-item">
-                    <div class="detail-info-label">更新时间</div>
-                    <div class="detail-info-value">${metric.update_time || '-'}</div>
-                </div>
-                <div class="detail-info-item">
-                    <div class="detail-info-label">下次更新</div>
-                    <div class="detail-info-value">${metric.next_update_time || '-'}</div>
-                </div>
+    // 业务属性
+    const businessHtml = `
+        <div class="detail-info-grid">
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标维度</div>
+                <div class="detail-info-value">${metric.dimension || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">业务口径</div>
+                <div class="detail-info-value">${metric.business_caliber || metric.description || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">归属部门</div>
+                <div class="detail-info-value">${metric.department || '-'}</div>
             </div>
         </div>
+    `;
 
-        <div class="detail-section">
-            <h4 class="detail-section-title">指标描述</h4>
-            <p style="color: #5a6c7d; line-height: 1.6;">${metric.description}</p>
+    // 管理属性
+    const managementHtml = `
+        <div class="detail-info-grid">
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标ID</div>
+                <div class="detail-info-value">${metric.id}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标名称</div>
+                <div class="detail-info-value">${metric.name}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标别名</div>
+                <div class="detail-info-value">${metric.alias || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标类型</div>
+                <div class="detail-info-value">${metric.type || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标分类</div>
+                <div class="detail-info-value">${metric.category || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">状态</div>
+                <div class="detail-info-value"><span class="status-badge ${isAuthorized ? 'status-authorized' : 'status-pending'}">${metric.permission || metric.status || '审批中'}</span></div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">负责人</div>
+                <div class="detail-info-value">${metric.owner || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">统计周期</div>
+                <div class="detail-info-value">${metric.cycle || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">计量单位</div>
+                <div class="detail-info-value">${metric.measure || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">单位</div>
+                <div class="detail-info-value">${metric.unit || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">币种</div>
+                <div class="detail-info-value">${metric.currency || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">来源</div>
+                <div class="detail-info-value">${metric.source || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">加工方式</div>
+                <div class="detail-info-value">${metric.processing || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">父指标</div>
+                <div class="detail-info-value">${metric.parent || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">制定依据</div>
+                <div class="detail-info-value">${metric.basis || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">统计规则</div>
+                <div class="detail-info-value">${metric.stat_rule || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">资产编号</div>
+                <div class="detail-info-value">${metric.asset_no || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">登记人员</div>
+                <div class="detail-info-value">${metric.registrant || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">登记方式</div>
+                <div class="detail-info-value">${metric.regist_method || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">登记时间</div>
+                <div class="detail-info-value">${metric.regist_time || '-'}</div>
+            </div>
+        </div>
+    `;
+
+    // 维度信息
+    const dimensionHtml = `
+        <div class="detail-info-grid">
+            <div class="detail-info-item" style="grid-column: 1 / -1;">
+                <div class="detail-info-label">维度列表</div>
+                <div class="detail-info-value">${metric.dimensions || metric.dimension || '-'}</div>
+            </div>
+        </div>
+    `;
+
+    // 技术属性
+    const bloodlineUpstream = Array.isArray(metric.bloodline_upstream) ? metric.bloodline_upstream : (metric.bloodline ? [metric.bloodline] : []);
+    const bloodlineDownstream = Array.isArray(metric.bloodline_downstream) ? metric.bloodline_downstream : [];
+    const bloodlineUpstreamHtml = bloodlineUpstream.length > 0 ? `
+        <ul class="detail-bloodline-list">
+            ${bloodlineUpstream.map(item => `
+                <li class="detail-bloodline-item" style="cursor: pointer;" onclick="showDataPreview('${item}', '表')" title="点击查看数据">
+                    <i class="fas fa-arrow-up" style="color: #4a90d9; margin-right: 4px;"></i>
+                    <span style="text-decoration: underline; text-decoration-style: dotted;">${item}</span>
+                </li>
+            `).join('')}
+        </ul>
+    ` : '<span style="color: #8898aa;">-</span>';
+    const bloodlineDownstreamHtml = bloodlineDownstream.length > 0 ? `
+        <ul class="detail-bloodline-list">
+            ${bloodlineDownstream.map(item => `
+                <li class="detail-bloodline-item" style="cursor: pointer;" onclick="showDataPreview('${item}', '表')" title="点击查看数据">
+                    <i class="fas fa-arrow-down" style="color: #f59e0b; margin-right: 4px;"></i>
+                    <span style="text-decoration: underline; text-decoration-style: dotted;">${item}</span>
+                </li>
+            `).join('')}
+        </ul>
+    ` : '<span style="color: #8898aa;">-</span>';
+
+    const technicalHtml = `
+        <div class="detail-info-grid">
+            <div class="detail-info-item">
+                <div class="detail-info-label">指标更新时间</div>
+                <div class="detail-info-value">${metric.update_time || '-'}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="detail-info-label">下次预计更新时间</div>
+                <div class="detail-info-value">${metric.next_update_time || '-'}</div>
+            </div>
+            <div class="detail-info-item" style="grid-column: 1 / -1;">
+                <div class="detail-info-label">指标血缘-上游（数据源）</div>
+                <div class="detail-info-value">${bloodlineUpstreamHtml}</div>
+            </div>
+            <div class="detail-info-item" style="grid-column: 1 / -1;">
+                <div class="detail-info-label">指标血缘-下游（依赖指标）</div>
+                <div class="detail-info-value">${bloodlineDownstreamHtml}</div>
+            </div>
+        </div>
+    `;
+
+    // 变更历史
+    const historyHtml = `
+        <pre style="color: #5a6c7d; line-height: 1.6; white-space: pre-wrap; font-family: inherit; margin: 0;">${metric.history || '-'}</pre>
+    `;
+
+    let htmlContent = `
+        <div class="detail-section detail-section-collapsible" data-section="info">
+            <div class="detail-section-header" onclick="toggleDetailSection('info')">
+                <h4 class="detail-section-title">
+                    <i class="fas fa-info-circle"></i> 指标信息
+                </h4>
+                <i class="fas fa-chevron-down detail-section-toggle"></i>
+            </div>
+            <div class="detail-section-body">
+                <div class="detail-subsection">
+                    <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                        <i class="fas fa-briefcase"></i> 业务属性
+                        <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                    </h5>
+                    <div class="detail-subsection-body">${businessHtml}</div>
+                </div>
+                <div class="detail-subsection">
+                    <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                        <i class="fas fa-cog"></i> 管理属性
+                        <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                    </h5>
+                    <div class="detail-subsection-body">${managementHtml}</div>
+                </div>
+                <div class="detail-subsection">
+                    <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                        <i class="fas fa-layer-group"></i> 维度信息
+                        <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                    </h5>
+                    <div class="detail-subsection-body">${dimensionHtml}</div>
+                </div>
+                <div class="detail-subsection">
+                    <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                        <i class="fas fa-code"></i> 技术属性
+                        <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                    </h5>
+                    <div class="detail-subsection-body">${technicalHtml}</div>
+                </div>
+                <div class="detail-subsection">
+                    <h5 class="detail-subsection-title" onclick="toggleSubSection(this)">
+                        <i class="fas fa-history"></i> 变更历史
+                        <i class="fas fa-chevron-down detail-subsection-toggle"></i>
+                    </h5>
+                    <div class="detail-subsection-body">${historyHtml}</div>
+                </div>
+            </div>
         </div>
     `;
 
@@ -740,7 +1211,7 @@ function showMarketMetricDetailSimple(metric) {
             <div class="detail-section">
                 <div class="unauthorized-notice">
                     <i class="fas fa-lock"></i>
-                    <span>该指标尚未授权，暂不支持查看趋势数据</span>
+                    <span>该指标尚未授权（${metric.permission || '审批中'}），暂不支持查看趋势数据</span>
                 </div>
             </div>
         `;
@@ -1950,6 +2421,206 @@ function submitQuestion() {
 // 关闭弹窗
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('show');
+}
+
+// 显示质量检查详情
+function showQualityDetail(checkId, metricId) {
+    fetch('/api/quality/' + metricId)
+        .then(res => res.json())
+        .then(qualityData => {
+            const detail = qualityData.detail || {};
+            const statusClass = (qualityData.status === 'normal') ? 'quality-normal' :
+                                (qualityData.status === 'warning') ? 'quality-warning' : 'quality-danger';
+            const statusText = (qualityData.status === 'normal') ? '正常' :
+                               (qualityData.status === 'warning') ? '警告' : '异常';
+
+            // 检查方法
+            const checkMethodsHtml = (detail.check_methods || []).map(m =>
+                `<span class="quality-tag">${m}</span>`
+            ).join('');
+
+            // 历史记录
+            const historyHtml = (detail.history || []).map(h => {
+                const sClass = h.status === 'normal' ? 'quality-normal' :
+                               h.status === 'warning' ? 'quality-warning' : 'quality-danger';
+                return `
+                    <tr>
+                        <td>${h.date}</td>
+                        <td><span class="quality-score-mini ${sClass}">${h.score}</span></td>
+                        <td>${h.anomaly}</td>
+                        <td><span class="status-badge ${sClass === 'quality-normal' ? 'status-authorized' : sClass === 'quality-warning' ? 'status-pending' : 'status-offline'}">${h.status === 'normal' ? '正常' : h.status === 'warning' ? '警告' : '异常'}</span></td>
+                    </tr>
+                `;
+            }).join('');
+
+            // 异常列表
+            let anomalyHtml = '<p style="color: #5a6c7d; text-align: center; padding: 20px;">暂无异常记录</p>';
+            if (detail.anomaly_list && detail.anomaly_list.length > 0) {
+                anomalyHtml = `
+                    <table class="detail-table">
+                        <thead>
+                            <tr>
+                                <th>字段</th>
+                                <th>异常类型</th>
+                                <th>数量</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${detail.anomaly_list.map(a => `
+                                <tr>
+                                    <td><code>${a.field}</code></td>
+                                    <td>${a.type}</td>
+                                    <td>${a.count}</td>
+                                    <td>${a.rate}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+            }
+
+            // 阈值
+            const t = detail.threshold || {};
+            const thresholdHtml = `
+                <div class="quality-threshold-grid">
+                    <div class="quality-threshold-item">
+                        <div class="quality-threshold-label">完整性阈值</div>
+                        <div class="quality-threshold-value">${t.completeness || 95}%</div>
+                    </div>
+                    <div class="quality-threshold-item">
+                        <div class="quality-threshold-label">一致性阈值</div>
+                        <div class="quality-threshold-value">${t.consistency || 95}%</div>
+                    </div>
+                    <div class="quality-threshold-item">
+                        <div class="quality-threshold-label">及时性阈值</div>
+                        <div class="quality-threshold-value">${t.timeliness || 90}%</div>
+                    </div>
+                    <div class="quality-threshold-item">
+                        <div class="quality-threshold-label">准确性阈值</div>
+                        <div class="quality-threshold-value">${t.accuracy || 95}%</div>
+                    </div>
+                </div>
+            `;
+
+            // 当前 vs 阈值对比条
+            const metricsHtml = [
+                { label: '完整性', value: qualityData.completeness, threshold: t.completeness || 95 },
+                { label: '一致性', value: qualityData.consistency, threshold: t.consistency || 95 },
+                { label: '及时性', value: qualityData.timeliness, threshold: t.timeliness || 90 },
+                { label: '准确性', value: qualityData.accuracy, threshold: t.accuracy || 95 }
+            ].map(m => {
+                const ok = m.value >= m.threshold;
+                return `
+                    <div class="quality-metric-item">
+                        <div class="quality-metric-label">
+                            ${m.label}
+                            <span class="quality-threshold-hint">阈值 ≥ ${m.threshold}%</span>
+                        </div>
+                        <div class="quality-metric-bar">
+                            <div class="quality-metric-fill ${ok ? 'quality-normal' : 'quality-danger'}" style="width: ${m.value}%"></div>
+                            <div class="quality-metric-threshold" style="left: ${m.threshold}%"></div>
+                        </div>
+                        <div class="quality-metric-value">${m.value}%</div>
+                    </div>
+                `;
+            }).join('');
+
+            const html = `
+                <div class="quality-detail-container">
+                    <!-- 头部摘要 -->
+                    <div class="quality-detail-header">
+                        <div class="quality-detail-info">
+                            <h3 style="margin: 0 0 8px 0; color: #2c3e50;">${detail.metric_name || qualityData.name || ''}</h3>
+                            <div style="color: #5a6c7d; font-size: 13px;">
+                                <span style="margin-right: 16px;"><i class="fas fa-fingerprint"></i> ${detail.check_id || checkId}</span>
+                                <span style="margin-right: 16px;"><i class="fas fa-cog"></i> ${detail.check_type || qualityData.check_type || '-'}</span>
+                                <span><i class="fas fa-clock"></i> 上次执行: ${detail.last_check_time || '-'}</span>
+                            </div>
+                        </div>
+                        <div class="quality-score-container">
+                            <div class="quality-score-circle ${statusClass}">
+                                <span class="quality-score-value">${qualityData.quality_score}</span>
+                                <span class="quality-score-label">分</span>
+                            </div>
+                            <span class="quality-status-tag ${statusClass}">${statusText}</span>
+                        </div>
+                    </div>
+
+                    <!-- 当前指标 -->
+                    <div class="quality-detail-section">
+                        <h4 class="quality-detail-section-title"><i class="fas fa-chart-bar"></i> 维度得分</h4>
+                        <div class="quality-metrics-grid">${metricsHtml}</div>
+                    </div>
+
+                    <!-- 检查配置 -->
+                    <div class="quality-detail-section">
+                        <h4 class="quality-detail-section-title"><i class="fas fa-cogs"></i> 检查配置</h4>
+                        <div class="detail-info-grid">
+                            <div class="detail-info-item" style="grid-column: 1 / -1;">
+                                <div class="detail-info-label">检查方法</div>
+                                <div class="detail-info-value">${checkMethodsHtml || '-'}</div>
+                            </div>
+                            <div class="detail-info-item" style="grid-column: 1 / -1;">
+                                <div class="detail-info-label">校验规则</div>
+                                <div class="detail-info-value">${detail.check_rules || '-'}</div>
+                            </div>
+                            <div class="detail-info-item">
+                                <div class="detail-info-label">执行频率</div>
+                                <div class="detail-info-value">${detail.check_frequency || '-'}</div>
+                            </div>
+                            <div class="detail-info-item">
+                                <div class="detail-info-label">耗时</div>
+                                <div class="detail-info-value">${detail.check_duration || '-'}</div>
+                            </div>
+                            <div class="detail-info-item">
+                                <div class="detail-info-label">检查数据量</div>
+                                <div class="detail-info-value">${detail.data_volume || '-'}</div>
+                            </div>
+                            <div class="detail-info-item">
+                                <div class="detail-info-label">下次执行</div>
+                                <div class="detail-info-value">${detail.next_check_time || '-'}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 阈值配置 -->
+                    <div class="quality-detail-section">
+                        <h4 class="quality-detail-section-title"><i class="fas fa-sliders-h"></i> 阈值配置</h4>
+                        ${thresholdHtml}
+                    </div>
+
+                    <!-- 异常明细 -->
+                    <div class="quality-detail-section">
+                        <h4 class="quality-detail-section-title">
+                            <i class="fas fa-exclamation-triangle"></i> 异常明细
+                            <span class="quality-detail-count">${detail.anomaly_list ? detail.anomaly_list.length : 0} 类</span>
+                        </h4>
+                        ${anomalyHtml}
+                    </div>
+
+                    <!-- 历史记录 -->
+                    <div class="quality-detail-section">
+                        <h4 class="quality-detail-section-title"><i class="fas fa-history"></i> 最近 5 次检查</h4>
+                        <table class="detail-table">
+                            <thead>
+                                <tr>
+                                    <th>检查日期</th>
+                                    <th>质量分</th>
+                                    <th>异常数</th>
+                                    <th>状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>${historyHtml}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('quality-detail-content').innerHTML = html;
+            document.getElementById('quality-detail-title').textContent = '质量检查详情 - ' + (detail.metric_name || qualityData.name || '');
+            document.getElementById('quality-detail-modal').classList.add('show');
+        });
 }
 
 // 显示数据预览

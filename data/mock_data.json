@@ -170,7 +170,35 @@
       "status": "审批中",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2024-01-01"
+      "create_time": "2024-01-01",
+      "dimension": "时间,产品",
+      "department": "财务部",
+      "business_caliber": "净利润 / 营业收入 × 100%",
+      "bloodline": "净利润表",
+      "alias": "净利率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1000",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "手工登记",
+      "regist_time": "2024-01-01 09:00:00",
+      "dimensions": "时间,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-02-05",
+      "bloodline_upstream": [
+        "净利润表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ]
     },
     {
       "id": "m002",
@@ -179,7 +207,36 @@
       "status": "审批中",
       "owner": "李四",
       "cycle": "季度",
-      "create_time": "2024-01-05"
+      "create_time": "2024-01-05",
+      "dimension": "时间,股东",
+      "department": "财务部",
+      "business_caliber": "净利润 / 平均股东权益 × 100%",
+      "bloodline": "净利润表,股东权益表",
+      "alias": "净资产收益率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "杜邦分析",
+      "asset_no": "A1001",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-05 10:00:00",
+      "dimensions": "时间,股东",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-04",
+      "next_update_time": "2024-04-03",
+      "bloodline_upstream": [
+        "净利润表",
+        "股东权益表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ]
     },
     {
       "id": "m003",
@@ -188,7 +245,36 @@
       "status": "审批中",
       "owner": "王五",
       "cycle": "季度",
-      "create_time": "2024-01-08"
+      "create_time": "2024-01-08",
+      "dimension": "时间,资产",
+      "department": "财务部",
+      "business_caliber": "净利润 / 平均总资产 × 100%",
+      "bloodline": "净利润表,资产负债表",
+      "alias": "总资产收益率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1002",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "手工登记",
+      "regist_time": "2024-01-08 11:00:00",
+      "dimensions": "时间,资产",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-05",
+      "next_update_time": "2024-04-04",
+      "bloodline_upstream": [
+        "净利润表",
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ]
     },
     {
       "id": "m004",
@@ -197,7 +283,36 @@
       "status": "审批中",
       "owner": "赵六",
       "cycle": "月度",
-      "create_time": "2024-01-10"
+      "create_time": "2024-01-10",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "营业费用 / 营业收入 × 100%",
+      "bloodline": "费用表,收入表",
+      "alias": "成本收入比率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "银行监管标准",
+      "asset_no": "A1003",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-10 14:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-13",
+      "next_update_time": "2024-02-12",
+      "bloodline_upstream": [
+        "费用表",
+        "收入表"
+      ],
+      "bloodline_downstream": [
+        "m020"
+      ]
     },
     {
       "id": "m005",
@@ -206,7 +321,34 @@
       "status": "已发布",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2023-12-20"
+      "create_time": "2023-12-20",
+      "dimension": "时间,机构,行业",
+      "department": "风控部",
+      "business_caliber": "不良贷款余额 / 贷款总额 × 100%",
+      "bloodline": "贷款台账,五级分类表",
+      "alias": "NPL比率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "信贷系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "asset_no": "A1004",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2023-12-20 09:00:00",
+      "dimensions": "时间,机构,行业",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-10",
+      "next_update_time": "2024-02-09",
+      "bloodline_upstream": [
+        "贷款台账",
+        "五级分类表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m006",
@@ -215,7 +357,34 @@
       "status": "已发布",
       "owner": "李四",
       "cycle": "月度",
-      "create_time": "2023-12-15"
+      "create_time": "2023-12-15",
+      "dimension": "时间,机构",
+      "department": "风控部",
+      "business_caliber": "贷款损失准备 / 不良贷款 × 100%",
+      "bloodline": "拨备表,不良贷款表",
+      "alias": "拨备充足率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "信贷系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议",
+      "asset_no": "A1005",
+      "stat_rule": "月末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2023-12-15 10:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-08",
+      "next_update_time": "2024-02-07",
+      "bloodline_upstream": [
+        "拨备表",
+        "不良贷款表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m007",
@@ -224,7 +393,34 @@
       "status": "审批中",
       "owner": "王五",
       "cycle": "季度",
-      "create_time": "2023-11-01"
+      "create_time": "2023-11-01",
+      "dimension": "时间,机构",
+      "department": "风控部",
+      "business_caliber": "资本净额 / 风险加权资产 × 100%",
+      "bloodline": "资本充足率表,RWA表",
+      "alias": "CAR",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "监管报送系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议III",
+      "asset_no": "A1006",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "自动同步",
+      "regist_time": "2023-11-01 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-15",
+      "next_update_time": "2024-04-14",
+      "bloodline_upstream": [
+        "资本充足率表",
+        "RWA表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m008",
@@ -233,7 +429,33 @@
       "status": "已发布",
       "owner": "赵六",
       "cycle": "月度",
-      "create_time": "2023-10-15"
+      "create_time": "2023-10-15",
+      "dimension": "时间,机构,业务",
+      "department": "风控部",
+      "business_caliber": "各类风险加权资产汇总",
+      "bloodline": "风险加权资产计算表",
+      "alias": "RWA",
+      "measure": "元",
+      "unit": "亿",
+      "currency": "人民币",
+      "source": "风险管理系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议",
+      "asset_no": "A1007",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "自动同步",
+      "regist_time": "2023-10-15 09:00:00",
+      "dimensions": "时间,机构,业务",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-08",
+      "next_update_time": "2024-02-07",
+      "bloodline_upstream": [
+        "风险加权资产计算表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m009",
@@ -242,7 +464,34 @@
       "status": "已发布",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2023-09-20"
+      "create_time": "2023-09-20",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "流动性资产 / 流动性负债 × 100%",
+      "bloodline": "流动性资产表,流动性负债表",
+      "alias": "LR",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "asset_no": "A1008",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2023-09-20 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-07",
+      "next_update_time": "2024-02-06",
+      "bloodline_upstream": [
+        "流动性资产表",
+        "流动性负债表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m010",
@@ -251,7 +500,34 @@
       "status": "审批中",
       "owner": "李四",
       "cycle": "月度",
-      "create_time": "2024-01-12"
+      "create_time": "2024-01-12",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "贷款总额 / 存款总额 × 100%",
+      "bloodline": "贷款表,存款表",
+      "alias": "贷存比",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "实时计算",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "asset_no": "A1009",
+      "stat_rule": "实时计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-12 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-09",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "贷款表",
+        "存款表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m011",
@@ -260,7 +536,34 @@
       "status": "已发布",
       "owner": "王五",
       "cycle": "月度",
-      "create_time": "2024-01-14"
+      "create_time": "2024-01-14",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "现金及现金等价物 / 流动负债 × 100%",
+      "bloodline": "现金表,流动负债表",
+      "alias": "现金资产比",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "财务分析",
+      "asset_no": "A1010",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-14 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-09",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "现金表",
+        "流动负债表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m012",
@@ -269,7 +572,33 @@
       "status": "已发布",
       "owner": "赵六",
       "cycle": "月度",
-      "create_time": "2024-01-13"
+      "create_time": "2024-01-13",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "(本期存款-上期存款) / 上期存款 × 100%",
+      "bloodline": "存款台账",
+      "alias": "存款增速",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "asset_no": "A1011",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-13 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-13",
+      "next_update_time": "2024-02-12",
+      "bloodline_upstream": [
+        "存款台账"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m013",
@@ -278,7 +607,33 @@
       "status": "已发布",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2024-01-11"
+      "create_time": "2024-01-11",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "(本期贷款-上期贷款) / 上期贷款 × 100%",
+      "bloodline": "贷款台账",
+      "alias": "贷款增速",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "asset_no": "A1012",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-11 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-04",
+      "next_update_time": "2024-02-03",
+      "bloodline_upstream": [
+        "贷款台账"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m014",
@@ -287,7 +642,33 @@
       "status": "已发布",
       "owner": "李四",
       "cycle": "月度",
-      "create_time": "2024-01-09"
+      "create_time": "2024-01-09",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "手续费及佣金收入合计",
+      "bloodline": "中间业务收入表",
+      "alias": "中收",
+      "measure": "元",
+      "unit": "万",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "asset_no": "A1013",
+      "stat_rule": "月末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-09 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-07",
+      "next_update_time": "2024-02-06",
+      "bloodline_upstream": [
+        "中间业务收入表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m015",
@@ -296,7 +677,33 @@
       "status": "已发布",
       "owner": "王五",
       "cycle": "月度",
-      "create_time": "2024-01-07"
+      "create_time": "2024-01-07",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "保险合同保费合计",
+      "bloodline": "保单表",
+      "alias": "保费",
+      "measure": "元",
+      "unit": "万",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "asset_no": "A1014",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-07 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-01",
+      "next_update_time": "2024-01-31",
+      "bloodline_upstream": [
+        "保单表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m016",
@@ -305,7 +712,36 @@
       "status": "已发布",
       "owner": "赵六",
       "cycle": "月度",
-      "create_time": "2024-01-06"
+      "create_time": "2024-01-06",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "赔款支出 / 保费收入 × 100%",
+      "bloodline": "理赔表,保费表",
+      "alias": "赔付比率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "asset_no": "A1015",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-06 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-01",
+      "next_update_time": "2024-01-31",
+      "bloodline_upstream": [
+        "理赔表",
+        "保费表"
+      ],
+      "bloodline_downstream": [
+        "m015"
+      ]
     },
     {
       "id": "m017",
@@ -314,7 +750,36 @@
       "status": "已发布",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2024-01-04"
+      "create_time": "2024-01-04",
+      "dimension": "时间,机构,产品",
+      "department": "业务部",
+      "business_caliber": "退保金额 / 保费收入 × 100%",
+      "bloodline": "退保表,保费表",
+      "alias": "退保比率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "asset_no": "A1016",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-04 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-09",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "退保表",
+        "保费表"
+      ],
+      "bloodline_downstream": [
+        "m015"
+      ]
     },
     {
       "id": "m018",
@@ -323,7 +788,33 @@
       "status": "已发布",
       "owner": "李四",
       "cycle": "季度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "流动资产+非流动资产合计",
+      "bloodline": "资产负债表",
+      "alias": "总资产规模",
+      "measure": "元",
+      "unit": "亿",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1017",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-02",
+      "next_update_time": "2024-04-01",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m019",
@@ -332,7 +823,35 @@
       "status": "已发布",
       "owner": "王五",
       "cycle": "季度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "总资产-总负债",
+      "bloodline": "资产负债表",
+      "alias": "所有者权益",
+      "measure": "元",
+      "unit": "亿",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "m018",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1018",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-08",
+      "next_update_time": "2024-04-07",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
+      ]
     },
     {
       "id": "m020",
@@ -341,7 +860,33 @@
       "status": "已发布",
       "owner": "赵六",
       "cycle": "月度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构,产品",
+      "department": "财务部",
+      "business_caliber": "营业收入合计",
+      "bloodline": "利润表",
+      "alias": "营收",
+      "measure": "元",
+      "unit": "亿",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1019",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-04",
+      "next_update_time": "2024-02-03",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "m021",
@@ -350,7 +895,35 @@
       "status": "已发布",
       "owner": "张三",
       "cycle": "月度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构,产品",
+      "department": "财务部",
+      "business_caliber": "营业收入-营业成本-费用-税",
+      "bloodline": "利润表",
+      "alias": "税后利润",
+      "measure": "元",
+      "unit": "万",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "m020",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "asset_no": "A1020",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-05",
+      "next_update_time": "2024-02-04",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": [
+        "m020"
+      ]
     },
     {
       "id": "m022",
@@ -359,7 +932,35 @@
       "status": "已发布",
       "owner": "李四",
       "cycle": "季度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "总负债 / 总资产 × 100%",
+      "bloodline": "资产负债表",
+      "alias": "负债比率",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "财务分析",
+      "asset_no": "A1021",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-04-05",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
+      ]
     },
     {
       "id": "m023",
@@ -368,7 +969,35 @@
       "status": "已发布",
       "owner": "王五",
       "cycle": "月度",
-      "create_time": "2024-01-15"
+      "create_time": "2024-01-15",
+      "dimension": "时间,机构",
+      "department": "财务部",
+      "business_caliber": "流动资产 / 流动负债 × 100%",
+      "bloodline": "资产负债表",
+      "alias": "CR",
+      "measure": "%",
+      "unit": "",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "财务分析",
+      "asset_no": "A1022",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-02-05",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m022"
+      ]
     }
   ],
   "metric_details": {
@@ -376,454 +1005,859 @@
       "id": "m001",
       "name": "净利润率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "净利润与营业收入的比率，反映企业盈利能力",
       "business_caliber": "归属于母公司股东的净利润 / 营业收入 * 100%",
       "technical_field": "finance.profit.net_profit / finance.revenue.operating_revenue",
       "owner": "张三",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-06",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "财务报表",
-        "利润表",
-        "营业收入",
-        "净利润"
+      "bloodline": "净利润表",
+      "dimension": "时间,产品",
+      "alias": "净利率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "手工登记",
+      "regist_time": "2024-01-01 09:00:00",
+      "dimensions": "时间,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-05",
+      "bloodline_upstream": [
+        "净利润表"
+      ],
+      "bloodline_downstream": [
+        "m021"
       ]
     },
     "m002": {
       "id": "m002",
       "name": "ROE",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "净资产收益率，衡量股东权益回报",
       "business_caliber": "净利润 / 平均股东权益 * 100%",
       "technical_field": "finance.profit.net_profit / finance.equity.average",
       "owner": "李四",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-04",
       "status": "已发布",
       "cycle": "季度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "资产负债表",
-        "利润表",
-        "股东权益变动表"
+      "bloodline": "净利润表,股东权益表",
+      "dimension": "时间,股东",
+      "alias": "净资产收益率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "杜邦分析",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-05 10:00:00",
+      "dimensions": "时间,股东",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-03",
+      "bloodline_upstream": [
+        "净利润表",
+        "股东权益表"
+      ],
+      "bloodline_downstream": [
+        "m021"
       ]
     },
     "m003": {
       "id": "m003",
       "name": "ROA",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "总资产收益率，衡量资产使用效率",
       "business_caliber": "净利润 / 平均总资产 * 100%",
       "technical_field": "finance.profit.net_profit / finance.asset.average",
       "owner": "王五",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-05",
       "status": "已发布",
       "cycle": "季度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "资产负债表",
-        "利润表",
-        "现金流量表"
+      "bloodline": "净利润表,资产负债表",
+      "dimension": "时间,资产",
+      "alias": "总资产收益率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "手工登记",
+      "regist_time": "2024-01-08 11:00:00",
+      "dimensions": "时间,资产",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-04",
+      "bloodline_upstream": [
+        "净利润表",
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m021"
       ]
     },
     "m004": {
       "id": "m004",
       "name": "成本收入比",
       "type": "复合指标",
-      "unit": "%",
+      "unit": "",
       "definition": "营业成本与营业收入的比率",
       "business_caliber": "营业成本 / 营业收入 * 100%",
       "technical_field": "finance.cost.operating / finance.revenue.operating",
       "owner": "赵六",
-      "department": "运营管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-13",
       "status": "审批中",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "成本核算表",
-        "费用明细表",
-        "利润表"
+      "bloodline": "费用表,收入表",
+      "dimension": "时间,机构",
+      "alias": "成本收入比率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "银行监管标准",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-10 14:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-12",
+      "bloodline_upstream": [
+        "费用表",
+        "收入表"
+      ],
+      "bloodline_downstream": [
+        "m020"
       ]
     },
     "m005": {
       "id": "m005",
       "name": "不良贷款率",
       "type": "原子指标",
-      "unit": "%",
+      "unit": "",
       "definition": "不良贷款占总贷款的比例，反映信贷资产质量",
       "business_caliber": "不良贷款余额 / 各项贷款余额 * 100%",
       "technical_field": "loan.non_performing.amount / loan.total.amount",
       "owner": "张三",
-      "department": "风险管理部",
-      "update_time": "2024-01-15",
+      "department": "风控部",
+      "update_time": "2024-01-10",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "信贷数据仓库",
-      "bloodline": [
+      "bloodline": "贷款台账,五级分类表",
+      "dimension": "时间,机构,行业",
+      "alias": "NPL比率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "信贷系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2023-12-20 09:00:00",
+      "dimensions": "时间,机构,行业",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-09",
+      "bloodline_upstream": [
         "贷款台账",
-        "贷款分类表",
-        "客户信息表"
-      ]
+        "五级分类表"
+      ],
+      "bloodline_downstream": []
     },
     "m006": {
       "id": "m006",
       "name": "拨备覆盖率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "贷款损失准备与不良贷款的比率",
       "business_caliber": "贷款损失准备 / 不良贷款余额 * 100%",
       "technical_field": "risk.provision.amount / loan.non_performing.amount",
       "owner": "李四",
-      "department": "风险管理部",
-      "update_time": "2024-01-15",
+      "department": "风控部",
+      "update_time": "2024-01-08",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "风控数据仓库",
-      "bloodline": [
-        "拨备计提表",
-        "不良贷款统计表",
-        "风险评估表"
-      ]
+      "bloodline": "拨备表,不良贷款表",
+      "dimension": "时间,机构",
+      "alias": "拨备充足率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "信贷系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议",
+      "stat_rule": "月末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2023-12-15 10:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-07",
+      "bloodline_upstream": [
+        "拨备表",
+        "不良贷款表"
+      ],
+      "bloodline_downstream": []
     },
     "m007": {
       "id": "m007",
       "name": "资本充足率",
       "type": "复合指标",
-      "unit": "%",
+      "unit": "",
       "definition": "核心资本与风险加权资产的比率",
       "business_caliber": "核心一级资本 / 风险加权资产 * 100%",
       "technical_field": "capital.core / risk.weighted_assets",
       "owner": "王五",
-      "department": "资本管理部",
+      "department": "风控部",
       "update_time": "2024-01-15",
       "status": "已下线",
       "cycle": "季度",
       "data_source": "资本数据仓库",
-      "bloodline": [
-        "资本构成表",
-        "风险加权资产表",
-        "监管报表"
-      ]
+      "bloodline": "资本充足率表,RWA表",
+      "dimension": "时间,机构",
+      "alias": "CAR",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "监管报送系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议III",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "自动同步",
+      "regist_time": "2023-11-01 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-14",
+      "bloodline_upstream": [
+        "资本充足率表",
+        "RWA表"
+      ],
+      "bloodline_downstream": []
     },
     "m008": {
       "id": "m008",
       "name": "风险加权资产",
       "type": "原子指标",
-      "unit": "元",
+      "unit": "亿",
       "definition": "根据风险权重计算的资产总额",
       "business_caliber": "各项资产 * 对应风险权重之和",
       "technical_field": "risk.weighted_assets.total",
       "owner": "赵六",
-      "department": "风险管理部",
-      "update_time": "2024-01-15",
+      "department": "风控部",
+      "update_time": "2024-01-08",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "风控数据仓库",
-      "bloodline": [
-        "资产分类表",
-        "风险权重表",
-        "资产负债表"
-      ]
+      "bloodline": "风险加权资产计算表",
+      "dimension": "时间,机构,业务",
+      "alias": "RWA",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "风险管理系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "巴塞尔协议",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "自动同步",
+      "regist_time": "2023-10-15 09:00:00",
+      "dimensions": "时间,机构,业务",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-07",
+      "bloodline_upstream": [
+        "风险加权资产计算表"
+      ],
+      "bloodline_downstream": []
     },
     "m009": {
       "id": "m009",
       "name": "流动性比率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "流动资产与流动负债的比率",
       "business_caliber": "流动资产 / 流动负债 * 100%",
       "technical_field": "liquidity.current_asset / liquidity.current_liability",
       "owner": "张三",
-      "department": "资金管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-07",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "资金数据仓库",
-      "bloodline": [
-        "现金流量表",
-        "资产负债表",
-        "资金头寸表"
-      ]
+      "bloodline": "流动性资产表,流动性负债表",
+      "dimension": "时间,机构",
+      "alias": "LR",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2023-09-20 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-06",
+      "bloodline_upstream": [
+        "流动性资产表",
+        "流动性负债表"
+      ],
+      "bloodline_downstream": []
     },
     "m010": {
       "id": "m010",
       "name": "存贷比",
       "type": "复合指标",
-      "unit": "%",
+      "unit": "",
       "definition": "贷款余额与存款余额的比率",
       "business_caliber": "各项贷款余额 / 各项存款余额 * 100%",
       "technical_field": "loan.total.amount / deposit.total.amount",
       "owner": "李四",
-      "department": "资金管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-09",
       "status": "审批中",
       "cycle": "月度",
       "data_source": "核心银行系统",
-      "bloodline": [
-        "存款台账",
-        "贷款台账",
-        "资金平衡表"
-      ]
+      "bloodline": "贷款表,存款表",
+      "dimension": "时间,机构",
+      "alias": "贷存比",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "实时计算",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "银保监会要求",
+      "stat_rule": "实时计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-12 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "贷款表",
+        "存款表"
+      ],
+      "bloodline_downstream": []
     },
     "m011": {
       "id": "m011",
       "name": "现金比率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "现金及现金等价物与流动负债的比率",
       "business_caliber": "(现金 + 存放同业) / 流动负债 * 100%",
       "technical_field": "(cash.amount + cash.interbank) / liquidity.current_liability",
       "owner": "王五",
-      "department": "资金管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-09",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "资金数据仓库",
-      "bloodline": [
-        "现金日记账",
-        "存放同业表",
-        "资金头寸表"
-      ]
+      "bloodline": "现金表,流动负债表",
+      "dimension": "时间,机构",
+      "alias": "现金资产比",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "风险指标",
+      "basis": "财务分析",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-14 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "现金表",
+        "流动负债表"
+      ],
+      "bloodline_downstream": []
     },
     "m012": {
       "id": "m012",
       "name": "存款增长率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "本期存款较上期增长的比率",
       "business_caliber": "(本期存款 - 上期存款) / 上期存款 * 100%",
       "technical_field": "(deposit.current - deposit.previous) / deposit.previous",
       "owner": "赵六",
-      "department": "零售银行部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-13",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "核心银行系统",
-      "bloodline": [
-        "存款统计表",
-        "客户账户表",
-        "存款产品表"
-      ]
+      "bloodline": "存款台账",
+      "dimension": "时间,机构,产品",
+      "alias": "存款增速",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-13 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-12",
+      "bloodline_upstream": [
+        "存款台账"
+      ],
+      "bloodline_downstream": []
     },
     "m013": {
       "id": "m013",
       "name": "贷款增长率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "本期贷款较上期增长的比率",
       "business_caliber": "(本期贷款 - 上期贷款) / 上期贷款 * 100%",
       "technical_field": "(loan.current - loan.previous) / loan.previous",
       "owner": "张三",
-      "department": "公司银行部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-04",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "信贷数据仓库",
-      "bloodline": [
-        "贷款统计表",
-        "贷款产品表",
-        "客户授信表"
-      ]
+      "bloodline": "贷款台账",
+      "dimension": "时间,机构,产品",
+      "alias": "贷款增速",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "核心系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-11 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-03",
+      "bloodline_upstream": [
+        "贷款台账"
+      ],
+      "bloodline_downstream": []
     },
     "m014": {
       "id": "m014",
       "name": "中间业务收入",
       "type": "原子指标",
-      "unit": "元",
+      "unit": "万",
       "definition": "非利息收入的主要组成部分",
       "business_caliber": "手续费及佣金收入 + 投资收益 + 其他业务收入",
       "technical_field": "revenue.fee + revenue.investment + revenue.other",
       "owner": "李四",
-      "department": "财富管理部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-07",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "中间业务明细表",
-        "手续费收入表",
-        "投资收益表"
-      ]
+      "bloodline": "中间业务收入表",
+      "dimension": "时间,机构,产品",
+      "alias": "中收",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "业务管理需要",
+      "stat_rule": "月末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-09 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-06",
+      "bloodline_upstream": [
+        "中间业务收入表"
+      ],
+      "bloodline_downstream": []
     },
     "m015": {
       "id": "m015",
       "name": "保费收入",
       "type": "原子指标",
-      "unit": "元",
+      "unit": "万",
       "definition": "保险公司收取的保费总额",
       "business_caliber": "首年保费 + 续期保费 + 趸缴保费",
       "technical_field": "insurance.premium.first + insurance.premium.renewal + insurance.premium.single",
       "owner": "王五",
-      "department": "保险业务部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-01",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "保险核心系统",
-      "bloodline": [
-        "保单明细表",
-        "保费收入表",
-        "客户投保表"
-      ]
+      "bloodline": "保单表",
+      "dimension": "时间,机构,产品",
+      "alias": "保费",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-07 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-01-31",
+      "bloodline_upstream": [
+        "保单表"
+      ],
+      "bloodline_downstream": []
     },
     "m016": {
       "id": "m016",
       "name": "赔付率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "赔款支出与保费收入的比率",
       "business_caliber": "赔款支出 / 保费收入 * 100%",
       "technical_field": "insurance.claim.amount / insurance.premium.amount",
       "owner": "赵六",
-      "department": "保险业务部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-01",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "保险核心系统",
-      "bloodline": [
-        "赔款支出表",
-        "保费收入表",
-        "理赔记录表"
+      "bloodline": "理赔表,保费表",
+      "dimension": "时间,机构,产品",
+      "alias": "赔付比率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-06 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-01-31",
+      "bloodline_upstream": [
+        "理赔表",
+        "保费表"
+      ],
+      "bloodline_downstream": [
+        "m015"
       ]
     },
     "m017": {
       "id": "m017",
       "name": "退保率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "退保金额与保费收入的比率",
       "business_caliber": "退保金额 / 保费收入 * 100%",
       "technical_field": "insurance.surrender.amount / insurance.premium.amount",
       "owner": "张三",
-      "department": "保险业务部",
-      "update_time": "2024-01-15",
+      "department": "业务部",
+      "update_time": "2024-01-09",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "保险核心系统",
-      "bloodline": [
-        "退保记录表",
-        "保费收入表",
-        "保单状态表"
+      "bloodline": "退保表,保费表",
+      "dimension": "时间,机构,产品",
+      "alias": "退保比率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "保险系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "运营指标",
+      "basis": "保险会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "自动同步",
+      "regist_time": "2024-01-04 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-08",
+      "bloodline_upstream": [
+        "退保表",
+        "保费表"
+      ],
+      "bloodline_downstream": [
+        "m015"
       ]
     },
     "m018": {
       "id": "m018",
       "name": "总资产",
       "type": "原子指标",
-      "unit": "元",
+      "unit": "亿",
       "definition": "企业拥有或控制的全部资产总额",
       "business_caliber": "流动资产 + 非流动资产",
       "technical_field": "asset.current + asset.non_current",
       "owner": "李四",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-02",
       "status": "已发布",
       "cycle": "季度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "资产负债表",
-        "固定资产台账",
-        "存货明细表"
-      ]
+      "bloodline": "资产负债表",
+      "dimension": "时间,机构",
+      "alias": "总资产规模",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-01",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": []
     },
     "m019": {
       "id": "m019",
       "name": "净资产",
       "type": "派生指标",
-      "unit": "元",
+      "unit": "亿",
       "definition": "企业所有者权益总额",
       "business_caliber": "总资产 - 总负债",
       "technical_field": "asset.total - liability.total",
       "owner": "王五",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-08",
       "status": "已发布",
       "cycle": "季度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "资产负债表",
-        "股东权益变动表"
+      "bloodline": "资产负债表",
+      "dimension": "时间,机构",
+      "alias": "所有者权益",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "m018",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "季末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-07",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
       ]
     },
     "m020": {
       "id": "m020",
       "name": "营业收入",
       "type": "原子指标",
-      "unit": "元",
+      "unit": "亿",
       "definition": "企业经营业务所取得的收入总额",
       "business_caliber": "主营业务收入 + 其他业务收入",
       "technical_field": "revenue.main + revenue.other",
       "owner": "赵六",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-04",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "利润表",
-        "销售收入明细表"
-      ]
+      "bloodline": "利润表",
+      "dimension": "时间,机构,产品",
+      "alias": "营收",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "赵六",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-03",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": []
     },
     "m021": {
       "id": "m021",
       "name": "净利润",
       "type": "派生指标",
-      "unit": "元",
+      "unit": "万",
       "definition": "企业税后利润，反映最终盈利能力",
       "business_caliber": "利润总额 - 所得税费用",
       "technical_field": "profit.total - tax.expense",
       "owner": "张三",
       "department": "财务部",
-      "update_time": "2024-01-15",
+      "update_time": "2024-01-05",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
-        "利润表",
-        "所得税申报表"
+      "bloodline": "利润表",
+      "dimension": "时间,机构,产品",
+      "alias": "税后利润",
+      "measure": "元",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "m020",
+      "category": "财务指标",
+      "basis": "会计准则",
+      "stat_rule": "月末计算",
+      "registrant": "张三",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构,产品",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-04",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": [
+        "m020"
       ]
     },
     "m022": {
       "id": "m022",
       "name": "资产负债率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "企业负债总额与资产总额的比率",
       "business_caliber": "总负债 / 总资产 * 100%",
       "technical_field": "liability.total / asset.total",
       "owner": "李四",
-      "department": "风险管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-06",
       "status": "已发布",
       "cycle": "季度",
       "data_source": "财务数据仓库",
-      "bloodline": [
+      "bloodline": "资产负债表",
+      "dimension": "时间,机构",
+      "alias": "负债比率",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "财务分析",
+      "stat_rule": "季末计算",
+      "registrant": "李四",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-04-05",
+      "bloodline_upstream": [
         "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
       ]
     },
     "m023": {
       "id": "m023",
       "name": "流动比率",
       "type": "派生指标",
-      "unit": "%",
+      "unit": "",
       "definition": "流动资产与流动负债的比率",
       "business_caliber": "流动资产 / 流动负债 * 100%",
       "technical_field": "asset.current / liability.current",
       "owner": "王五",
-      "department": "资金管理部",
-      "update_time": "2024-01-15",
+      "department": "财务部",
+      "update_time": "2024-01-06",
       "status": "已发布",
       "cycle": "月度",
       "data_source": "财务数据仓库",
-      "bloodline": [
+      "bloodline": "资产负债表",
+      "dimension": "时间,机构",
+      "alias": "CR",
+      "measure": "%",
+      "currency": "人民币",
+      "source": "财务系统",
+      "processing": "ETL",
+      "parent": "",
+      "category": "财务指标",
+      "basis": "财务分析",
+      "stat_rule": "月末计算",
+      "registrant": "王五",
+      "regist_method": "系统导入",
+      "regist_time": "2024-01-15 09:00:00",
+      "dimensions": "时间,机构",
+      "history": "2024-01-01 创建指标\n2024-01-15 完成首次发布",
+      "next_update_time": "2024-02-05",
+      "bloodline_upstream": [
         "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m022"
       ]
     }
   },
@@ -837,7 +1871,33 @@
       "description": "分析客户流失情况",
       "permission": "审批中",
       "update_time": "2024-01-15 10:30",
-      "next_update_time": "2024-01-16 10:30"
+      "next_update_time": "2024-01-16 10:30",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "张运营",
+      "regist_time": "2024-01-15 10:30",
+      "history": "2024-01-15 张运营 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk002",
@@ -848,7 +1908,33 @@
       "description": "各类产品收益分析",
       "permission": "审批中",
       "update_time": "2024-01-15 09:00",
-      "next_update_time": "2024-01-16 09:00"
+      "next_update_time": "2024-01-16 09:00",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "系统",
+      "regist_time": "2024-01-15 09:00",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk003",
@@ -858,9 +1944,34 @@
       "unit": "%",
       "description": "各渠道转化效果",
       "permission": "已授权",
-      "update_time": "2024-01-15 14:20",
-      "next_update_time": "2024-01-16 14:20",
-      "metric_id": "m012"
+      "update_time": "2024-01-13",
+      "next_update_time": "2024-02-12",
+      "metric_id": "m012",
+      "bloodline_upstream": [
+        "存款台账"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-13",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk004",
@@ -871,7 +1982,33 @@
       "description": "客户风险评估评分",
       "permission": "审批中",
       "update_time": "2024-01-15 11:45",
-      "next_update_time": "2024-01-15 17:00"
+      "next_update_time": "2024-01-15 17:00",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "系统",
+      "regist_time": "2024-01-15 11:45",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk005",
@@ -882,7 +2019,33 @@
       "description": "营销活动效果评估",
       "permission": "审批中",
       "update_time": "2024-01-14 16:00",
-      "next_update_time": "2024-01-16 16:00"
+      "next_update_time": "2024-01-16 16:00",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "系统",
+      "regist_time": "2024-01-14 16:00",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk006",
@@ -892,9 +2055,35 @@
       "unit": "%",
       "description": "资金流动性分析",
       "permission": "已授权",
-      "update_time": "2024-01-15 08:30",
-      "next_update_time": "2024-01-15 20:30",
-      "metric_id": "m009"
+      "update_time": "2024-01-07",
+      "next_update_time": "2024-02-06",
+      "metric_id": "m009",
+      "bloodline_upstream": [
+        "流动性资产表",
+        "流动性负债表"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-07",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk007",
@@ -905,7 +2094,33 @@
       "description": "合规风险监测",
       "permission": "审批中",
       "update_time": "2024-01-13 10:00",
-      "next_update_time": "2024-01-16 10:00"
+      "next_update_time": "2024-01-16 10:00",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "系统",
+      "regist_time": "2024-01-13 10:00",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk008",
@@ -916,7 +2131,33 @@
       "description": "员工绩效评估",
       "permission": "审批中",
       "update_time": "2024-01-12 09:00",
-      "next_update_time": "2024-02-01 09:00"
+      "next_update_time": "2024-02-01 09:00",
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "审批中",
+      "owner": "系统",
+      "regist_time": "2024-01-12 09:00",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中",
+      "bloodline_upstream": [
+        "业务系统表",
+        "客户主数据表"
+      ],
+      "bloodline_downstream": []
     },
     {
       "id": "mk009",
@@ -926,9 +2167,36 @@
       "unit": "%",
       "description": "净利润与营业收入的比率，反映企业盈利能力",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-02-01 00:00",
-      "metric_id": "m001"
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-02-05",
+      "metric_id": "m001",
+      "bloodline_upstream": [
+        "净利润表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-06",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk010",
@@ -938,9 +2206,37 @@
       "unit": "%",
       "description": "净资产收益率，衡量股东权益回报",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-04-01 00:00",
-      "metric_id": "m002"
+      "update_time": "2024-01-04",
+      "next_update_time": "2024-04-03",
+      "metric_id": "m002",
+      "bloodline_upstream": [
+        "净利润表",
+        "股东权益表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-04",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk011",
@@ -950,9 +2246,37 @@
       "unit": "%",
       "description": "总资产收益率，衡量资产使用效率",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-04-01 00:00",
-      "metric_id": "m003"
+      "update_time": "2024-01-05",
+      "next_update_time": "2024-04-04",
+      "metric_id": "m003",
+      "bloodline_upstream": [
+        "净利润表",
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m021"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-05",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk012",
@@ -962,9 +2286,35 @@
       "unit": "%",
       "description": "不良贷款占总贷款的比例，反映信贷资产质量",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m005"
+      "update_time": "2024-01-10",
+      "next_update_time": "2024-02-09",
+      "metric_id": "m005",
+      "bloodline_upstream": [
+        "贷款台账",
+        "五级分类表"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-10",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk013",
@@ -974,9 +2324,35 @@
       "unit": "%",
       "description": "贷款损失准备与不良贷款的比率",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m006"
+      "update_time": "2024-01-08",
+      "next_update_time": "2024-02-07",
+      "metric_id": "m006",
+      "bloodline_upstream": [
+        "拨备表",
+        "不良贷款表"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-08",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk014",
@@ -986,9 +2362,37 @@
       "unit": "%",
       "description": "营业成本与营业收入的比率",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m004"
+      "update_time": "2024-01-13",
+      "next_update_time": "2024-02-12",
+      "metric_id": "m004",
+      "bloodline_upstream": [
+        "费用表",
+        "收入表"
+      ],
+      "bloodline_downstream": [
+        "m020"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-13",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk015",
@@ -998,9 +2402,34 @@
       "unit": "元",
       "description": "企业拥有或控制的全部资产总额",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m018"
+      "update_time": "2024-01-02",
+      "next_update_time": "2024-04-01",
+      "metric_id": "m018",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-02",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk016",
@@ -1010,9 +2439,36 @@
       "unit": "元",
       "description": "企业所有者权益总额，即资产减去负债",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m019"
+      "update_time": "2024-01-08",
+      "next_update_time": "2024-04-07",
+      "metric_id": "m019",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-08",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk017",
@@ -1022,9 +2478,34 @@
       "unit": "元",
       "description": "企业经营业务所取得的收入总额",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m020"
+      "update_time": "2024-01-04",
+      "next_update_time": "2024-02-03",
+      "metric_id": "m020",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": [],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-04",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk018",
@@ -1034,9 +2515,36 @@
       "unit": "元",
       "description": "企业税后利润，反映最终盈利能力",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m021"
+      "update_time": "2024-01-05",
+      "next_update_time": "2024-02-04",
+      "metric_id": "m021",
+      "bloodline_upstream": [
+        "利润表"
+      ],
+      "bloodline_downstream": [
+        "m020"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-05",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk019",
@@ -1046,9 +2554,36 @@
       "unit": "%",
       "description": "企业负债总额与资产总额的比率，反映财务杠杆水平",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m022"
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-04-05",
+      "metric_id": "m022",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m018"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-06",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     },
     {
       "id": "mk020",
@@ -1058,9 +2593,36 @@
       "unit": "%",
       "description": "流动资产与流动负债的比率，反映短期偿债能力",
       "permission": "已授权",
-      "update_time": "2024-01-15 00:00",
-      "next_update_time": "2024-01-16 00:00",
-      "metric_id": "m023"
+      "update_time": "2024-01-06",
+      "next_update_time": "2024-02-05",
+      "metric_id": "m023",
+      "bloodline_upstream": [
+        "资产负债表"
+      ],
+      "bloodline_downstream": [
+        "m022"
+      ],
+      "dimension": "客户",
+      "business_caliber": "流失客户数 / 期末客户总数",
+      "department": "客户运营部",
+      "alias": "CustomerChurnRate",
+      "type": "原子指标",
+      "cycle": "月度",
+      "measure": "比率",
+      "currency": "人民币",
+      "source": "CRM系统",
+      "processing": "直接计算",
+      "parent": "-",
+      "basis": "《客户运营管理办法》",
+      "stat_rule": "SUM(流失客户) / COUNT(期末客户)",
+      "asset_no": "AST-2024-0001",
+      "registrant": "张运营",
+      "regist_method": "手动登记",
+      "dimensions": "客户类型, 地区, 时间",
+      "status": "已授权",
+      "owner": "系统",
+      "regist_time": "2024-01-06",
+      "history": "2024-01-15 系统 提交指标申请\n2024-01-16 系统审核中"
     }
   ],
   "bloodline_data": {
@@ -1503,120 +3065,836 @@
       "name": "净利润率",
       "check_type": "数据完整性检查",
       "anomaly_count": 0,
-      "quality_score": 99,
+      "quality_score": 98,
       "status": "normal",
-      "completeness": 99.2,
-      "consistency": 98.5,
-      "timeliness": 97.8,
-      "accuracy": 99.1
+      "completeness": 98.5,
+      "consistency": 97.3,
+      "timeliness": 99.0,
+      "accuracy": 96.5,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc001",
+        "metric_id": "m001",
+        "metric_name": "净利润率",
+        "check_type": "数据完整性检查",
+        "quality_score": 98,
+        "status": "normal",
+        "anomaly_count": 0,
+        "completeness": 98.5,
+        "consistency": 97.3,
+        "timeliness": 99.0,
+        "accuracy": 96.5
+      }
     },
     {
       "id": "qc002",
       "name": "不良贷款率",
       "check_type": "数据准确性检查",
       "anomaly_count": 2,
-      "quality_score": 98,
+      "quality_score": 99,
       "status": "normal",
-      "completeness": 98.5,
+      "completeness": 99.2,
       "consistency": 99.0,
-      "timeliness": 96.2,
-      "accuracy": 98.8
+      "timeliness": 96.7,
+      "accuracy": 96.0,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc002",
+        "metric_id": "m002",
+        "metric_name": "不良贷款率",
+        "check_type": "数据准确性检查",
+        "quality_score": 99,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 99.2,
+        "consistency": 99.0,
+        "timeliness": 96.7,
+        "accuracy": 96.0
+      }
     },
     {
       "id": "qc003",
       "name": "ROE",
       "check_type": "数据一致性检查",
-      "anomaly_count": 5,
+      "anomaly_count": 0,
       "quality_score": 97,
       "status": "normal",
-      "completeness": 97.8,
-      "consistency": 96.5,
-      "timeliness": 95.0,
-      "accuracy": 97.2
+      "completeness": 97.5,
+      "consistency": 99.2,
+      "timeliness": 96.5,
+      "accuracy": 99.2,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc003",
+        "metric_id": "m003",
+        "metric_name": "ROE",
+        "check_type": "数据一致性检查",
+        "quality_score": 97,
+        "status": "normal",
+        "anomaly_count": 0,
+        "completeness": 97.5,
+        "consistency": 99.2,
+        "timeliness": 96.5,
+        "accuracy": 99.2
+      }
     },
     {
       "id": "qc004",
       "name": "流动性比率",
       "check_type": "时效性检查",
-      "anomaly_count": 8,
-      "quality_score": 85,
-      "status": "warning",
-      "completeness": 95.2,
-      "consistency": 94.8,
-      "timeliness": 72.0,
-      "accuracy": 95.0
+      "anomaly_count": 2,
+      "quality_score": 95,
+      "status": "normal",
+      "completeness": 97.5,
+      "consistency": 95.4,
+      "timeliness": 97.3,
+      "accuracy": 99.0,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc004",
+        "metric_id": "m004",
+        "metric_name": "流动性比率",
+        "check_type": "时效性检查",
+        "quality_score": 95,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 97.5,
+        "consistency": 95.4,
+        "timeliness": 97.3,
+        "accuracy": 99.0
+      }
     },
     {
       "id": "qc005",
       "name": "风险加权资产",
       "check_type": "数据质量综合检查",
-      "anomaly_count": 15,
-      "quality_score": 78,
-      "status": "danger",
-      "completeness": 82.0,
-      "consistency": 75.5,
-      "timeliness": 70.2,
-      "accuracy": 84.5
+      "anomaly_count": 2,
+      "quality_score": 99,
+      "status": "normal",
+      "completeness": 99.7,
+      "consistency": 97.0,
+      "timeliness": 96.7,
+      "accuracy": 99.8,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc005",
+        "metric_id": "m005",
+        "metric_name": "风险加权资产",
+        "check_type": "数据质量综合检查",
+        "quality_score": 99,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 99.7,
+        "consistency": 97.0,
+        "timeliness": 96.7,
+        "accuracy": 99.8
+      }
     },
     {
       "id": "qc006",
       "name": "成本收入比",
       "check_type": "数据完整性检查",
-      "anomaly_count": 3,
-      "quality_score": 94,
+      "anomaly_count": 1,
+      "quality_score": 99,
       "status": "normal",
-      "completeness": 96.5,
-      "consistency": 93.8,
-      "timeliness": 92.0,
-      "accuracy": 93.5
+      "completeness": 97.2,
+      "consistency": 96.1,
+      "timeliness": 99.1,
+      "accuracy": 98.1,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc006",
+        "metric_id": "m006",
+        "metric_name": "成本收入比",
+        "check_type": "数据完整性检查",
+        "quality_score": 99,
+        "status": "normal",
+        "anomaly_count": 1,
+        "completeness": 97.2,
+        "consistency": 96.1,
+        "timeliness": 99.1,
+        "accuracy": 98.1
+      }
     },
     {
       "id": "qc007",
       "name": "客户流失率",
       "check_type": "数据准确性检查",
-      "anomaly_count": 12,
-      "quality_score": 82,
+      "anomaly_count": 6,
+      "quality_score": 80,
       "status": "warning",
-      "completeness": 88.0,
-      "consistency": 82.5,
-      "timeliness": 78.0,
-      "accuracy": 85.0
+      "completeness": 89.3,
+      "consistency": 91.4,
+      "timeliness": 80.8,
+      "accuracy": 90.9,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验"
+        ],
+        "check_rules": "启用波动率校验后，部分字段出现超阈值波动",
+        "check_frequency": "每日 02:00 全量 + 4 小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 4 分 30 秒",
+        "data_volume": "986,512 条",
+        "threshold": {
+          "completeness": 95.0,
+          "consistency": 95.0,
+          "timeliness": 90.0,
+          "accuracy": 95.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 85,
+            "anomaly": 5,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 88,
+            "anomaly": 3,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 82,
+            "anomaly": 6,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 90,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 85,
+            "anomaly": 4,
+            "status": "warning"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 3,
+            "rate": "0.30%"
+          },
+          {
+            "field": "update_time",
+            "type": "及时性不足",
+            "count": 2,
+            "rate": "0.20%"
+          }
+        ],
+        "check_id": "qc007",
+        "metric_id": "m007",
+        "metric_name": "客户流失率",
+        "check_type": "数据准确性检查",
+        "quality_score": 80,
+        "status": "warning",
+        "anomaly_count": 6,
+        "completeness": 89.3,
+        "consistency": 91.4,
+        "timeliness": 80.8,
+        "accuracy": 90.9
+      }
     },
     {
       "id": "qc008",
       "name": "资产负债率",
       "check_type": "数据一致性检查",
-      "anomaly_count": 0,
-      "quality_score": 99,
-      "status": "normal",
-      "completeness": 99.5,
-      "consistency": 99.0,
-      "timeliness": 98.5,
-      "accuracy": 99.2
+      "anomaly_count": 8,
+      "quality_score": 88,
+      "status": "warning",
+      "completeness": 88.4,
+      "consistency": 87.5,
+      "timeliness": 83.1,
+      "accuracy": 90.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验"
+        ],
+        "check_rules": "启用波动率校验后，部分字段出现超阈值波动",
+        "check_frequency": "每日 02:00 全量 + 4 小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 4 分 30 秒",
+        "data_volume": "986,512 条",
+        "threshold": {
+          "completeness": 95.0,
+          "consistency": 95.0,
+          "timeliness": 90.0,
+          "accuracy": 95.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 85,
+            "anomaly": 5,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 88,
+            "anomaly": 3,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 82,
+            "anomaly": 6,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 90,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 85,
+            "anomaly": 4,
+            "status": "warning"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 3,
+            "rate": "0.30%"
+          },
+          {
+            "field": "update_time",
+            "type": "及时性不足",
+            "count": 2,
+            "rate": "0.20%"
+          }
+        ],
+        "check_id": "qc008",
+        "metric_id": "m008",
+        "metric_name": "资产负债率",
+        "check_type": "数据一致性检查",
+        "quality_score": 88,
+        "status": "warning",
+        "anomaly_count": 8,
+        "completeness": 88.4,
+        "consistency": 87.5,
+        "timeliness": 83.1,
+        "accuracy": 90.3
+      }
     },
     {
       "id": "qc009",
       "name": "拨备覆盖率",
       "check_type": "数据准确性检查",
-      "anomaly_count": 4,
-      "quality_score": 95,
-      "status": "normal",
-      "completeness": 97.2,
-      "consistency": 96.8,
-      "timeliness": 94.5,
-      "accuracy": 95.8
+      "anomaly_count": 24,
+      "quality_score": 62,
+      "status": "danger",
+      "completeness": 78.0,
+      "consistency": 79.9,
+      "timeliness": 77.2,
+      "accuracy": 70.6,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验",
+          "断点检测"
+        ],
+        "check_rules": "检测到重大数据异常，已触发告警",
+        "check_frequency": "每日 02:00 全量 + 每小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-15 03:00:00",
+        "check_duration": "约 6 分 15 秒",
+        "data_volume": "2,103,256 条",
+        "threshold": {
+          "completeness": 90.0,
+          "consistency": 90.0,
+          "timeliness": 85.0,
+          "accuracy": 90.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 65,
+            "anomaly": 15,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 78,
+            "anomaly": 8,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 72,
+            "anomaly": 11,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 80,
+            "anomaly": 7,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 68,
+            "anomaly": 13,
+            "status": "danger"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "空值率过高",
+            "count": 28,
+            "rate": "2.80%"
+          },
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 15,
+            "rate": "1.50%"
+          },
+          {
+            "field": "update_time",
+            "type": "更新延迟",
+            "count": 8,
+            "rate": "0.80%"
+          },
+          {
+            "field": "category",
+            "type": "值域越界",
+            "count": 5,
+            "rate": "0.50%"
+          }
+        ],
+        "check_id": "qc009",
+        "metric_id": "m009",
+        "metric_name": "拨备覆盖率",
+        "check_type": "数据准确性检查",
+        "quality_score": 62,
+        "status": "danger",
+        "anomaly_count": 24,
+        "completeness": 78.0,
+        "consistency": 79.9,
+        "timeliness": 77.2,
+        "accuracy": 70.6
+      }
     },
     {
       "id": "qc010",
       "name": "资本充足率",
       "check_type": "数据质量综合检查",
-      "anomaly_count": 1,
-      "quality_score": 98,
-      "status": "normal",
-      "completeness": 98.8,
-      "consistency": 98.2,
-      "timeliness": 97.5,
-      "accuracy": 98.5
+      "anomaly_count": 14,
+      "quality_score": 62,
+      "status": "danger",
+      "completeness": 75.0,
+      "consistency": 73.8,
+      "timeliness": 69.0,
+      "accuracy": 77.5,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验",
+          "断点检测"
+        ],
+        "check_rules": "检测到重大数据异常，已触发告警",
+        "check_frequency": "每日 02:00 全量 + 每小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-15 03:00:00",
+        "check_duration": "约 6 分 15 秒",
+        "data_volume": "2,103,256 条",
+        "threshold": {
+          "completeness": 90.0,
+          "consistency": 90.0,
+          "timeliness": 85.0,
+          "accuracy": 90.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 65,
+            "anomaly": 15,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 78,
+            "anomaly": 8,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 72,
+            "anomaly": 11,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 80,
+            "anomaly": 7,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 68,
+            "anomaly": 13,
+            "status": "danger"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "空值率过高",
+            "count": 28,
+            "rate": "2.80%"
+          },
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 15,
+            "rate": "1.50%"
+          },
+          {
+            "field": "update_time",
+            "type": "更新延迟",
+            "count": 8,
+            "rate": "0.80%"
+          },
+          {
+            "field": "category",
+            "type": "值域越界",
+            "count": 5,
+            "rate": "0.50%"
+          }
+        ],
+        "check_id": "qc010",
+        "metric_id": "m010",
+        "metric_name": "资本充足率",
+        "check_type": "数据质量综合检查",
+        "quality_score": 62,
+        "status": "danger",
+        "anomaly_count": 14,
+        "completeness": 75.0,
+        "consistency": 73.8,
+        "timeliness": 69.0,
+        "accuracy": 77.5
+      }
     },
     {
       "id": "qc011",
@@ -1625,154 +3903,1059 @@
       "anomaly_count": 0,
       "quality_score": 99,
       "status": "normal",
-      "completeness": 99.8,
-      "consistency": 99.5,
-      "timeliness": 99.0,
-      "accuracy": 99.6
+      "completeness": 97.2,
+      "consistency": 99.8,
+      "timeliness": 99.8,
+      "accuracy": 96.7,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc011",
+        "metric_id": "m011",
+        "metric_name": "总资产",
+        "check_type": "数据完整性检查",
+        "quality_score": 99,
+        "status": "normal",
+        "anomaly_count": 0,
+        "completeness": 97.2,
+        "consistency": 99.8,
+        "timeliness": 99.8,
+        "accuracy": 96.7
+      }
     },
     {
       "id": "qc012",
       "name": "净资产",
       "check_type": "数据一致性检查",
-      "anomaly_count": 2,
+      "anomaly_count": 0,
       "quality_score": 97,
       "status": "normal",
-      "completeness": 98.5,
-      "consistency": 97.8,
-      "timeliness": 96.5,
-      "accuracy": 98.0
+      "completeness": 99.2,
+      "consistency": 98.8,
+      "timeliness": 98.9,
+      "accuracy": 95.4,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc012",
+        "metric_id": "m012",
+        "metric_name": "净资产",
+        "check_type": "数据一致性检查",
+        "quality_score": 97,
+        "status": "normal",
+        "anomaly_count": 0,
+        "completeness": 99.2,
+        "consistency": 98.8,
+        "timeliness": 98.9,
+        "accuracy": 95.4
+      }
     },
     {
       "id": "qc013",
       "name": "营业收入",
       "check_type": "数据准确性检查",
-      "anomaly_count": 3,
-      "quality_score": 96,
+      "anomaly_count": 0,
+      "quality_score": 98,
       "status": "normal",
-      "completeness": 97.8,
+      "completeness": 95.5,
       "consistency": 96.5,
-      "timeliness": 95.8,
-      "accuracy": 97.2
+      "timeliness": 97.0,
+      "accuracy": 96.1,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc013",
+        "metric_id": "m013",
+        "metric_name": "营业收入",
+        "check_type": "数据准确性检查",
+        "quality_score": 98,
+        "status": "normal",
+        "anomaly_count": 0,
+        "completeness": 95.5,
+        "consistency": 96.5,
+        "timeliness": 97.0,
+        "accuracy": 96.1
+      }
     },
     {
       "id": "qc014",
       "name": "净利润",
       "check_type": "数据质量综合检查",
-      "anomaly_count": 1,
-      "quality_score": 98,
+      "anomaly_count": 2,
+      "quality_score": 99,
       "status": "normal",
-      "completeness": 99.0,
-      "consistency": 98.5,
-      "timeliness": 97.8,
-      "accuracy": 98.8
+      "completeness": 97.0,
+      "consistency": 98.0,
+      "timeliness": 96.8,
+      "accuracy": 96.7,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc014",
+        "metric_id": "m014",
+        "metric_name": "净利润",
+        "check_type": "数据质量综合检查",
+        "quality_score": 99,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 97.0,
+        "consistency": 98.0,
+        "timeliness": 96.8,
+        "accuracy": 96.7
+      }
     },
     {
       "id": "qc015",
       "name": "ROA",
       "check_type": "数据完整性检查",
-      "anomaly_count": 5,
-      "quality_score": 93,
+      "anomaly_count": 1,
+      "quality_score": 97,
       "status": "normal",
-      "completeness": 95.2,
-      "consistency": 92.8,
-      "timeliness": 94.0,
-      "accuracy": 93.5
+      "completeness": 95.6,
+      "consistency": 98.1,
+      "timeliness": 96.6,
+      "accuracy": 96.1,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc015",
+        "metric_id": "m015",
+        "metric_name": "ROA",
+        "check_type": "数据完整性检查",
+        "quality_score": 97,
+        "status": "normal",
+        "anomaly_count": 1,
+        "completeness": 95.6,
+        "consistency": 98.1,
+        "timeliness": 96.6,
+        "accuracy": 96.1
+      }
     },
     {
       "id": "qc016",
       "name": "存贷比",
       "check_type": "数据一致性检查",
-      "anomaly_count": 0,
-      "quality_score": 96,
+      "anomaly_count": 1,
+      "quality_score": 98,
       "status": "normal",
-      "completeness": 97.3,
-      "consistency": 96.1,
-      "timeliness": 95.8,
-      "accuracy": 96.2
+      "completeness": 97.5,
+      "consistency": 95.7,
+      "timeliness": 95.2,
+      "accuracy": 97.7,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc016",
+        "metric_id": "m016",
+        "metric_name": "存贷比",
+        "check_type": "数据一致性检查",
+        "quality_score": 98,
+        "status": "normal",
+        "anomaly_count": 1,
+        "completeness": 97.5,
+        "consistency": 95.7,
+        "timeliness": 95.2,
+        "accuracy": 97.7
+      }
     },
     {
       "id": "qc017",
       "name": "现金比率",
       "check_type": "数据准确性检查",
-      "anomaly_count": 4,
-      "quality_score": 92,
-      "status": "normal",
-      "completeness": 95.8,
-      "consistency": 93.5,
-      "timeliness": 89.5,
-      "accuracy": 94.0
+      "anomaly_count": 6,
+      "quality_score": 88,
+      "status": "warning",
+      "completeness": 89.9,
+      "consistency": 87.6,
+      "timeliness": 85.8,
+      "accuracy": 94.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验"
+        ],
+        "check_rules": "启用波动率校验后，部分字段出现超阈值波动",
+        "check_frequency": "每日 02:00 全量 + 4 小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 4 分 30 秒",
+        "data_volume": "986,512 条",
+        "threshold": {
+          "completeness": 95.0,
+          "consistency": 95.0,
+          "timeliness": 90.0,
+          "accuracy": 95.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 85,
+            "anomaly": 5,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 88,
+            "anomaly": 3,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 82,
+            "anomaly": 6,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 90,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 85,
+            "anomaly": 4,
+            "status": "warning"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 3,
+            "rate": "0.30%"
+          },
+          {
+            "field": "update_time",
+            "type": "及时性不足",
+            "count": 2,
+            "rate": "0.20%"
+          }
+        ],
+        "check_id": "qc017",
+        "metric_id": "m017",
+        "metric_name": "现金比率",
+        "check_type": "数据准确性检查",
+        "quality_score": 88,
+        "status": "warning",
+        "anomaly_count": 6,
+        "completeness": 89.9,
+        "consistency": 87.6,
+        "timeliness": 85.8,
+        "accuracy": 94.3
+      }
     },
     {
       "id": "qc018",
       "name": "流动比率",
       "check_type": "时效性检查",
-      "anomaly_count": 6,
-      "quality_score": 88,
+      "anomaly_count": 4,
+      "quality_score": 89,
       "status": "warning",
-      "completeness": 94.5,
-      "consistency": 91.2,
-      "timeliness": 78.5,
-      "accuracy": 92.0
+      "completeness": 93.6,
+      "consistency": 87.1,
+      "timeliness": 86.6,
+      "accuracy": 86.5,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验"
+        ],
+        "check_rules": "启用波动率校验后，部分字段出现超阈值波动",
+        "check_frequency": "每日 02:00 全量 + 4 小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 4 分 30 秒",
+        "data_volume": "986,512 条",
+        "threshold": {
+          "completeness": 95.0,
+          "consistency": 95.0,
+          "timeliness": 90.0,
+          "accuracy": 95.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 85,
+            "anomaly": 5,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 88,
+            "anomaly": 3,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 82,
+            "anomaly": 6,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 90,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 85,
+            "anomaly": 4,
+            "status": "warning"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 3,
+            "rate": "0.30%"
+          },
+          {
+            "field": "update_time",
+            "type": "及时性不足",
+            "count": 2,
+            "rate": "0.20%"
+          }
+        ],
+        "check_id": "qc018",
+        "metric_id": "m018",
+        "metric_name": "流动比率",
+        "check_type": "时效性检查",
+        "quality_score": 89,
+        "status": "warning",
+        "anomaly_count": 4,
+        "completeness": 93.6,
+        "consistency": 87.1,
+        "timeliness": 86.6,
+        "accuracy": 86.5
+      }
     },
     {
       "id": "qc019",
       "name": "存款增长率",
       "check_type": "数据质量综合检查",
-      "anomaly_count": 3,
-      "quality_score": 94,
-      "status": "normal",
-      "completeness": 96.5,
-      "consistency": 94.2,
-      "timeliness": 92.8,
-      "accuracy": 95.0
+      "anomaly_count": 23,
+      "quality_score": 69,
+      "status": "danger",
+      "completeness": 80.7,
+      "consistency": 82.3,
+      "timeliness": 69.4,
+      "accuracy": 81.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验",
+          "断点检测"
+        ],
+        "check_rules": "检测到重大数据异常，已触发告警",
+        "check_frequency": "每日 02:00 全量 + 每小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-15 03:00:00",
+        "check_duration": "约 6 分 15 秒",
+        "data_volume": "2,103,256 条",
+        "threshold": {
+          "completeness": 90.0,
+          "consistency": 90.0,
+          "timeliness": 85.0,
+          "accuracy": 90.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 65,
+            "anomaly": 15,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 78,
+            "anomaly": 8,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 72,
+            "anomaly": 11,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 80,
+            "anomaly": 7,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 68,
+            "anomaly": 13,
+            "status": "danger"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "空值率过高",
+            "count": 28,
+            "rate": "2.80%"
+          },
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 15,
+            "rate": "1.50%"
+          },
+          {
+            "field": "update_time",
+            "type": "更新延迟",
+            "count": 8,
+            "rate": "0.80%"
+          },
+          {
+            "field": "category",
+            "type": "值域越界",
+            "count": 5,
+            "rate": "0.50%"
+          }
+        ],
+        "check_id": "qc019",
+        "metric_id": "m019",
+        "metric_name": "存款增长率",
+        "check_type": "数据质量综合检查",
+        "quality_score": 69,
+        "status": "danger",
+        "anomaly_count": 23,
+        "completeness": 80.7,
+        "consistency": 82.3,
+        "timeliness": 69.4,
+        "accuracy": 81.3
+      }
     },
     {
       "id": "qc020",
       "name": "贷款增长率",
       "check_type": "数据准确性检查",
-      "anomaly_count": 2,
-      "quality_score": 95,
-      "status": "normal",
-      "completeness": 97.2,
-      "consistency": 95.8,
-      "timeliness": 93.5,
-      "accuracy": 96.0
+      "anomaly_count": 23,
+      "quality_score": 77,
+      "status": "danger",
+      "completeness": 75.8,
+      "consistency": 82.8,
+      "timeliness": 67.6,
+      "accuracy": 74.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验",
+          "波动率校验",
+          "断点检测"
+        ],
+        "check_rules": "检测到重大数据异常，已触发告警",
+        "check_frequency": "每日 02:00 全量 + 每小时增量",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-15 03:00:00",
+        "check_duration": "约 6 分 15 秒",
+        "data_volume": "2,103,256 条",
+        "threshold": {
+          "completeness": 90.0,
+          "consistency": 90.0,
+          "timeliness": 85.0,
+          "accuracy": 90.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 65,
+            "anomaly": 15,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 78,
+            "anomaly": 8,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 72,
+            "anomaly": 11,
+            "status": "danger"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 80,
+            "anomaly": 7,
+            "status": "warning"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 68,
+            "anomaly": 13,
+            "status": "danger"
+          }
+        ],
+        "anomaly_list": [
+          {
+            "field": "value",
+            "type": "空值率过高",
+            "count": 28,
+            "rate": "2.80%"
+          },
+          {
+            "field": "value",
+            "type": "波动率超限",
+            "count": 15,
+            "rate": "1.50%"
+          },
+          {
+            "field": "update_time",
+            "type": "更新延迟",
+            "count": 8,
+            "rate": "0.80%"
+          },
+          {
+            "field": "category",
+            "type": "值域越界",
+            "count": 5,
+            "rate": "0.50%"
+          }
+        ],
+        "check_id": "qc020",
+        "metric_id": "m020",
+        "metric_name": "贷款增长率",
+        "check_type": "数据准确性检查",
+        "quality_score": 77,
+        "status": "danger",
+        "anomaly_count": 23,
+        "completeness": 75.8,
+        "consistency": 82.8,
+        "timeliness": 67.6,
+        "accuracy": 74.3
+      }
     },
     {
       "id": "qc021",
       "name": "保费收入",
       "check_type": "数据完整性检查",
-      "anomaly_count": 4,
-      "quality_score": 94,
+      "anomaly_count": 2,
+      "quality_score": 96,
       "status": "normal",
-      "completeness": 96.8,
-      "consistency": 94.5,
-      "timeliness": 92.0,
-      "accuracy": 95.5
+      "completeness": 99.4,
+      "consistency": 97.7,
+      "timeliness": 96.7,
+      "accuracy": 95.6,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc021",
+        "metric_id": "m021",
+        "metric_name": "保费收入",
+        "check_type": "数据完整性检查",
+        "quality_score": 96,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 99.4,
+        "consistency": 97.7,
+        "timeliness": 96.7,
+        "accuracy": 95.6
+      }
     },
     {
       "id": "qc022",
       "name": "赔付率",
       "check_type": "数据一致性检查",
-      "anomaly_count": 1,
-      "quality_score": 97,
+      "anomaly_count": 2,
+      "quality_score": 98,
       "status": "normal",
-      "completeness": 98.5,
-      "consistency": 97.8,
-      "timeliness": 96.2,
-      "accuracy": 98.0
+      "completeness": 97.6,
+      "consistency": 99.0,
+      "timeliness": 98.5,
+      "accuracy": 98.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc022",
+        "metric_id": "m022",
+        "metric_name": "赔付率",
+        "check_type": "数据一致性检查",
+        "quality_score": 98,
+        "status": "normal",
+        "anomaly_count": 2,
+        "completeness": 97.6,
+        "consistency": 99.0,
+        "timeliness": 98.5,
+        "accuracy": 98.3
+      }
     },
     {
       "id": "qc023",
       "name": "退保率",
       "check_type": "数据准确性检查",
-      "anomaly_count": 5,
-      "quality_score": 91,
+      "anomaly_count": 1,
+      "quality_score": 97,
       "status": "normal",
-      "completeness": 94.2,
-      "consistency": 92.5,
-      "timeliness": 89.0,
-      "accuracy": 93.5
+      "completeness": 97.2,
+      "consistency": 97.0,
+      "timeliness": 95.2,
+      "accuracy": 97.3,
+      "detail": {
+        "check_methods": [
+          "空值校验",
+          "值域校验",
+          "唯一性校验",
+          "逻辑校验"
+        ],
+        "check_rules": "基于业务规则的标准质量校验流程，覆盖字段级、表级、跨表一致性",
+        "check_frequency": "每日凌晨 02:00 全量执行；每 4 小时增量执行",
+        "last_check_time": "2024-01-15 02:00:00",
+        "next_check_time": "2024-01-16 02:00:00",
+        "check_duration": "约 3 分 12 秒",
+        "data_volume": "1,256,840 条",
+        "threshold": {
+          "completeness": 99.0,
+          "consistency": 98.0,
+          "timeliness": 95.0,
+          "accuracy": 99.0
+        },
+        "history": [
+          {
+            "date": "2024-01-15",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-14",
+            "score": 98,
+            "anomaly": 1,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-13",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-12",
+            "score": 97,
+            "anomaly": 2,
+            "status": "normal"
+          },
+          {
+            "date": "2024-01-11",
+            "score": 99,
+            "anomaly": 0,
+            "status": "normal"
+          }
+        ],
+        "check_id": "qc023",
+        "metric_id": "m023",
+        "metric_name": "退保率",
+        "check_type": "数据准确性检查",
+        "quality_score": 97,
+        "status": "normal",
+        "anomaly_count": 1,
+        "completeness": 97.2,
+        "consistency": 97.0,
+        "timeliness": 95.2,
+        "accuracy": 97.3
+      }
     }
   ]
 }

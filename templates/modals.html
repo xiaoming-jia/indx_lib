@@ -29,36 +29,195 @@
 
 <!-- 新增指标弹窗 -->
 <div class="modal-overlay" id="add-modal">
-    <div class="modal">
+    <div class="modal modal-large">
         <div class="modal-header">
             <h3 class="modal-title">新增指标</h3>
             <span class="modal-close" onclick="closeModal('add-modal')">&times;</span>
         </div>
         <div class="modal-body">
             <form id="add-metric-form">
-                <div class="form-group">
-                    <label>指标名称</label>
-                    <input type="text" class="form-control" id="add-name" required>
+                <!-- 业务属性 -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-briefcase"></i> 业务属性
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>指标维度</label>
+                            <input type="text" class="form-control" id="add-dimension" placeholder="如：时间、产品、地区">
+                        </div>
+                        <div class="form-group">
+                            <label>归属部门</label>
+                            <select class="form-control" id="add-department">
+                                <option value="">请选择部门</option>
+                                <option value="财务部">财务部</option>
+                                <option value="业务部">业务部</option>
+                                <option value="技术部">技术部</option>
+                                <option value="风控部">风控部</option>
+                                <option value="运营部">运营部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>业务口径</label>
+                        <textarea class="form-control" id="add-caliber" rows="3" placeholder="指标的业务定义和计算逻辑"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>指标类型</label>
-                    <select class="form-control" id="add-type" required>
-                        <option value="原子指标">原子指标</option>
-                        <option value="派生指标">派生指标</option>
-                        <option value="复合指标">复合指标</option>
-                    </select>
+
+                <!-- 技术属性 -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-code"></i> 技术属性
+                    </h4>
+                    <div class="form-group">
+                        <label>指标血缘</label>
+                        <textarea class="form-control" id="add-bloodline" rows="2" placeholder="上游数据源或依赖指标"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>单位</label>
-                    <input type="text" class="form-control" id="add-unit" placeholder="如：%、元、分">
+
+                <!-- 管理属性 -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-cog"></i> 管理属性
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>指标名称 *</label>
+                            <input type="text" class="form-control" id="add-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>指标别名</label>
+                            <input type="text" class="form-control" id="add-alias" placeholder="指标的别名或简称">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>指标类型 *</label>
+                            <select class="form-control" id="add-type" required>
+                                <option value="原子指标">原子指标</option>
+                                <option value="派生指标">派生指标</option>
+                                <option value="复合指标">复合指标</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>计量单位</label>
+                            <select class="form-control" id="add-measure">
+                                <option value="">请选择计量单位</option>
+                                <option value="%">%</option>
+                                <option value="元">元</option>
+                                <option value="分">分</option>
+                                <option value="个">个</option>
+                                <option value="次">次</option>
+                                <option value="人">人</option>
+                                <option value="笔">笔</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>单位</label>
+                            <input type="text" class="form-control" id="add-unit" placeholder="如：万、亿、千">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>来源</label>
+                            <input type="text" class="form-control" id="add-source" placeholder="数据来源系统">
+                        </div>
+                        <div class="form-group">
+                            <label>加工方式</label>
+                            <select class="form-control" id="add-processing">
+                                <option value="">请选择加工方式</option>
+                                <option value="ETL">ETL</option>
+                                <option value="实时计算">实时计算</option>
+                                <option value="手工录入">手工录入</option>
+                                <option value="API接口">API接口</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>父指标</label>
+                            <input type="text" class="form-control" id="add-parent" placeholder="上级指标ID或名称">
+                        </div>
+                        <div class="form-group">
+                            <label>币种</label>
+                            <select class="form-control" id="add-currency">
+                                <option value="">请选择币种</option>
+                                <option value="人民币">人民币</option>
+                                <option value="美元">美元</option>
+                                <option value="欧元">欧元</option>
+                                <option value="日元">日元</option>
+                                <option value="港元">港元</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>指标分类</label>
+                            <select class="form-control" id="add-category">
+                                <option value="">请选择分类</option>
+                                <option value="财务指标">财务指标</option>
+                                <option value="运营指标">运营指标</option>
+                                <option value="风险指标">风险指标</option>
+                                <option value="客户指标">客户指标</option>
+                                <option value="市场指标">市场指标</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>制定依据</label>
+                            <input type="text" class="form-control" id="add-basis" placeholder="制定指标的依据或标准">
+                        </div>
+                        <div class="form-group">
+                            <label>资产编号</label>
+                            <input type="text" class="form-control" id="add-asset-no" placeholder="指标资产编号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>统计规则</label>
+                        <textarea class="form-control" id="add-stat-rule" rows="2" placeholder="指标的统计规则和计算逻辑"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>登记人员</label>
+                            <input type="text" class="form-control" id="add-registrant" placeholder="登记人姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>登记方式</label>
+                            <select class="form-control" id="add-regist-method">
+                                <option value="">请选择登记方式</option>
+                                <option value="手工登记">手工登记</option>
+                                <option value="系统导入">系统导入</option>
+                                <option value="自动同步">自动同步</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>登记时间</label>
+                            <input type="datetime-local" class="form-control" id="add-regist-time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>负责人</label>
+                        <input type="text" class="form-control" id="add-owner" placeholder="指标负责人">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>业务口径</label>
-                    <textarea class="form-control" id="add-caliber" rows="3"></textarea>
+
+                <!-- 维度信息 -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-layer-group"></i> 维度信息
+                    </h4>
+                    <div class="form-group">
+                        <label>维度列表</label>
+                        <textarea class="form-control" id="add-dimensions" rows="2" placeholder="多个维度用逗号分隔，如：时间,产品,渠道,地区"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>负责人</label>
-                    <input type="text" class="form-control" id="add-owner">
+
+                <!-- 变更历史 -->
+                <div class="form-section">
+                    <h4 class="form-section-title">
+                        <i class="fas fa-history"></i> 变更历史
+                    </h4>
+                    <div class="form-group">
+                        <label>变更记录</label>
+                        <textarea class="form-control" id="add-history" rows="2" placeholder="记录指标的变更历史信息"></textarea>
+                    </div>
                 </div>
             </form>
         </div>

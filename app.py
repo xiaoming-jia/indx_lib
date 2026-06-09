@@ -48,11 +48,6 @@ def save_data(data):
 data = load_data()
 
 # 动态获取数据的函数
-def get_north_star_metrics():
-    return data.get('north_star_metrics', [])
-
-def get_metric_tree():
-    return data.get('metric_tree', {})
 
 def get_metrics_list():
     return data.get('metrics_list', [])
@@ -289,13 +284,8 @@ def build_metric_context():
     """构建指标数据的上下文信息"""
     metrics = get_metrics_list()
     details = get_metric_details()
-    north_star = get_north_star_metrics()
 
-    context = "【北极星指标】\n"
-    for m in north_star:
-        context += f"- {m['name']}: {m['value']}{m['unit']} (同比{'+' if m['trend'] >= 0 else ''}{m['trend']}%)\n"
-
-    context += "\n【指标列表】\n"
+    context = "【指标列表】\n"
     for m in metrics:
         detail = details.get(m['id'], {})
         context += f"- {m['name']} ({m['type']}): 当前值={detail.get('business_caliber', 'N/A')}, 状态={m['status']}, 负责人={m['owner']}, 周期={m['cycle']}\n"
@@ -307,14 +297,6 @@ def build_metric_context():
 @app.route('/')
 def index():
     return render_template('index.html')
-
-@app.route('/api/north_star')
-def api_north_star():
-    return jsonify(get_north_star_metrics())
-
-@app.route('/api/metric_tree')
-def api_metric_tree():
-    return jsonify(get_metric_tree())
 
 @app.route('/api/metrics')
 def api_metrics():
@@ -432,7 +414,38 @@ def api_quality_by_metric(metric_id):
         "completeness": 95.0,
         "consistency": 95.0,
         "timeliness": 95.0,
-        "accuracy": 95.0
+        "accuracy": 95.0,
+        "detail": {
+            "check_id": "qc_" + metric_id,
+            "metric_id": metric_id,
+            "metric_name": metric.get("name", "未知指标") if metric else "未知指标",
+            "check_type": "数据质量综合检查",
+            "quality_score": 95,
+            "status": "normal",
+            "anomaly_count": 0,
+            "completeness": 95.0,
+            "consistency": 95.0,
+            "timeliness": 95.0,
+            "accuracy": 95.0,
+            "check_methods": ["空值校验", "值域校验", "唯一性校验"],
+            "check_rules": "基于业务规则的标准质量校验流程",
+            "check_frequency": "每日凌晨 02:00 全量执行",
+            "last_check_time": "2024-01-15 02:00:00",
+            "next_check_time": "2024-01-16 02:00:00",
+            "check_duration": "约 2 分 30 秒",
+            "data_volume": "约 1,000,000 条",
+            "threshold": {
+                "completeness": 95.0,
+                "consistency": 95.0,
+                "timeliness": 90.0,
+                "accuracy": 95.0
+            },
+            "history": [
+                {'date': '2024-01-15', 'score': 95, 'anomaly': 0, 'status': 'normal'},
+                {'date': '2024-01-14', 'score': 95, 'anomaly': 0, 'status': 'normal'},
+                {'date': '2024-01-13', 'score': 95, 'anomaly': 0, 'status': 'normal'}
+            ]
+        }
     })
 
 @app.route('/api/table_data/<table_name>')
@@ -450,11 +463,36 @@ def api_add_metric():
     new_metric = {
         "id": new_id,
         "name": req_data.get("name", ""),
-        "type": req_data.get("type", "原子"),
+        "type": req_data.get("type", "原子指标"),
         "status": "审批中",
         "owner": req_data.get("owner", ""),
         "cycle": req_data.get("cycle", "月度"),
-        "create_time": "2024-01-15"
+        "create_time": "2024-01-15",
+        # 业务属性
+        "dimension": req_data.get("dimension", ""),
+        "department": req_data.get("department", ""),
+        "business_caliber": req_data.get("business_caliber", ""),
+        # 技术属性
+        "bloodline": req_data.get("bloodline", ""),
+        # 管理属性
+        "alias": req_data.get("alias", ""),
+        "measure": req_data.get("measure", ""),
+        "unit": req_data.get("unit", ""),
+        "currency": req_data.get("currency", ""),
+        "source": req_data.get("source", ""),
+        "processing": req_data.get("processing", ""),
+        "parent": req_data.get("parent", ""),
+        "category": req_data.get("category", ""),
+        "basis": req_data.get("basis", ""),
+        "asset_no": req_data.get("asset_no", ""),
+        "stat_rule": req_data.get("stat_rule", ""),
+        "registrant": req_data.get("registrant", ""),
+        "regist_method": req_data.get("regist_method", ""),
+        "regist_time": req_data.get("regist_time", ""),
+        # 维度信息
+        "dimensions": req_data.get("dimensions", ""),
+        # 变更历史
+        "history": req_data.get("history", "")
     }
     metrics_list.append(new_metric)
     data['metrics_list'] = metrics_list
