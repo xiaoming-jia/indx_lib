@@ -1,9 +1,9 @@
 /**
- * 指标详情样式
- * 包含：详情弹窗、详情信息、数据质量展示
+ * 鎸囨爣璇︽儏鏍峰紡
+ * 鍖呭惈锛氳鎯呭脊绐椼€佽鎯呬俊鎭€佹暟鎹川閲忓睍绀?
  */
 
-/* 指标详情弹窗 */
+/* 鎸囨爣璇︽儏寮圭獥 */
 .detail-section {
     margin-bottom: 20px;
 }
@@ -63,7 +63,7 @@
     color: #4a90d9;
 }
 
-/* 指标详情中的数据质量样式 */
+/* 鎸囨爣璇︽儏涓殑鏁版嵁璐ㄩ噺鏍峰紡 */
 .quality-overview {
     background: #f8f9fa;
     border-radius: 10px;
@@ -174,7 +174,7 @@
     font-weight: 600;
 }
 
-/* 数据预览样式 */
+/* 鏁版嵁棰勮鏍峰紡 */
 .table-info {
     display: flex;
     justify-content: space-between;
@@ -214,7 +214,7 @@
     margin: 0;
 }
 
-/* 数据预览表格样式 */
+/* 鏁版嵁棰勮琛ㄦ牸鏍峰紡 */
 #data-preview-content .table-wrapper {
     position: relative;
     overflow: auto;
@@ -294,4 +294,336 @@
 
 #data-preview-content .table tbody tr:last-child td {
     border-bottom: none;
+}
+
+
+/* 璇︽儏鍖哄煙鍙姌鍙犳牱寮?*/
+.detail-section-collapsible .detail-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.detail-section-collapsible .detail-section-header:hover {
+    background: #f1f5f9;
+}
+
+.detail-section-collapsible .detail-section-title {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.detail-section-subtitle {
+    font-size: 12px;
+    color: #8898aa;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+.detail-section-toggle {
+    color: #8898aa;
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+
+.detail-section-collapsible.collapsed .detail-section-toggle {
+    transform: rotate(-90deg);
+}
+
+.detail-section-collapsible.collapsed .detail-section-body {
+    display: none;
+}
+
+/* 璇︽儏瀛愬尯鍩?*/
+.detail-subsection {
+    margin-bottom: 16px;
+    background: #fff;
+    border: 1px solid #e8eaed;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.detail-subsection-title {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+    background: #fafbfc;
+    border-bottom: 1px solid #e8eaed;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.detail-subsection-title i:first-child {
+    color: #4a90d9;
+    margin-right: 6px;
+}
+
+.detail-subsection-toggle {
+    font-size: 12px;
+    color: #8898aa;
+    transition: transform 0.3s;
+}
+
+.detail-subsection.collapsed .detail-subsection-toggle {
+    transform: rotate(-90deg);
+}
+
+.detail-subsection.collapsed .detail-subsection-body {
+    display: none;
+}
+
+.detail-subsection-body {
+    padding: 14px;
+}
+
+/* 瓒嬪娍宸ュ叿鏍?*/
+.trend-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.trend-view-switch {
+    display: flex;
+    gap: 8px;
+}
+
+.trend-view-btn {
+    padding: 6px 14px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #5a6c7d;
+    transition: all 0.2s;
+}
+
+.trend-view-btn:hover {
+    border-color: #4a90d9;
+    color: #4a90d9;
+}
+
+.trend-view-btn.active {
+    background: #4a90d9;
+    color: #fff;
+    border-color: #4a90d9;
+}
+
+.trend-date-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #5a6c7d;
+}
+
+.trend-date-input {
+    padding: 5px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+.trend-date-input:focus {
+    outline: none;
+    border-color: #4a90d9;
+}
+
+/* 琛ㄦ牸鍒嗛〉 */
+.table-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 12px;
+}
+
+.pagination-info {
+    font-size: 13px;
+    color: #5a6c7d;
+}
+/* 璐ㄩ噺妫€鏌ヨ鎯呭脊绐楁牱寮?*/
+.quality-detail-container {
+    padding: 4px;
+}
+
+.quality-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.quality-detail-info {
+    flex: 1;
+}
+
+.quality-detail-section {
+    background: #fff;
+    border: 1px solid #e8eaed;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.quality-detail-section-title {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 8px;
+}
+
+.quality-detail-section-title i {
+    color: #4a90d9;
+}
+
+.quality-detail-count {
+    background: #f1f5f9;
+    color: #5a6c7d;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: auto;
+    font-weight: normal;
+}
+
+.quality-tag {
+    display: inline-block;
+    background: #eef5fc;
+    color: #4a90d9;
+    border: 1px solid #d4e6f7;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 12px;
+    margin: 2px 4px 2px 0;
+}
+
+.quality-score-mini {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.quality-score-mini.quality-normal { background: #38a169; }
+.quality-score-mini.quality-warning { background: #ed8936; }
+.quality-score-mini.quality-danger { background: #e53e3e; }
+
+.quality-threshold-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.quality-threshold-item {
+    background: #f8fafc;
+    border: 1px solid #e8eaed;
+    border-radius: 6px;
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.quality-threshold-label {
+    font-size: 12px;
+    color: #5a6c7d;
+    margin-bottom: 4px;
+}
+
+.quality-threshold-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.quality-metric-threshold {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    width: 2px;
+    background: #e53e3e;
+    z-index: 2;
+}
+
+.quality-metric-bar {
+    position: relative;
+}
+
+.quality-threshold-hint {
+    float: right;
+    font-size: 11px;
+    color: #8898aa;
+    font-weight: normal;
+}
+
+/* 璇︽儏琛ㄦ牸 */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.detail-table thead th {
+    background: #f8fafc;
+    color: #4a5568;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e8eaed;
+}
+
+.detail-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f2f5;
+    color: #2c3e50;
+}
+
+.detail-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.detail-table code {
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: 'Consolas', monospace;
+    color: #4a90d9;
+    font-size: 12px;
 }

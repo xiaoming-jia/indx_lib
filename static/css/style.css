@@ -6,7 +6,6 @@
  * - base.css        : 基础样式（重置、布局、侧边栏、主内容区）
  * - components.css  : 通用组件（卡片、按钮、表格、弹窗、表单）
  * - dashboard.css   : 管理驾驶舱样式
- * - metric-system.css : 指标体系样式
  * - metric-center.css : 指标中心样式
  * - metric-market.css : 指标市场样式
  * - bloodline.css   : 指标血缘样式
@@ -24,7 +23,6 @@
 
 /* 页面模块样式 */
 @import url('dashboard.css');
-@import url('metric-system.css');
 @import url('metric-center.css');
 @import url('metric-market.css');
 @import url('bloodline.css');

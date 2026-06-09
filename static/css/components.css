@@ -246,6 +246,38 @@
     margin-bottom: 16px;
 }
 
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 16px;
+}
+
+.form-section {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: #fafbfc;
+    border-radius: 8px;
+    border: 1px solid #e8eaed;
+}
+
+.form-section-title {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-section-title i {
+    color: #4a90d9;
+}
+
 .form-label {
     display: block;
     margin-bottom: 6px;
